@@ -1,0 +1,53 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{lieart}[2019/06/30 v2.00 LieART Package]
+
+\RequirePackage{amsmath}
+
+\newcommand{\SU}[1]{\ensuremath{{\text{SU}(#1)}}}
+\newcommand{\SO}[1]{\ensuremath{{\text{SO}(#1)}}}
+\newcommand{\Sp}[1]{\ensuremath{{\text{Sp}(#1)}}}
+\newcommand{\U}[1]{\ensuremath{{\text{U}(#1)}}}
+\newcommand{\A}[1]{\ensuremath{\text{A}_{#1}}}
+\newcommand{\B}[1]{\ensuremath{\text{B}_{#1}}}
+\newcommand{\C}[1]{\ensuremath{\text{C}_{#1}}}
+\newcommand{\D}[1]{\ensuremath{\text{D}_{#1}}}
+\newcommand{\E}[1]{\ensuremath{\text{E}_{#1}}}
+\newcommand{\F}[1]{\ensuremath{\text{F}_{#1}}}
+\newcommand{\G}[1]{\ensuremath{\text{G}_{#1}}}
+
+%% Define commands for the irreducible representation label
+\newcommand{\boldirrep}{\mathbf}
+\newcommand{\irrepbase}[1]{\ensuremath{\boldirrep{#1}}}
+
+%% Define command for the complex conjugated irreducible representation label (with bar)
+\newlength{\irrepwidth}
+\newlength{\irrepbarthickness}
+\newlength{\irrepbarheight}
+\setlength{\irrepbarthickness}{0.75pt}
+\setlength{\irrepbarheight}{1.8ex}
+\newcommand{\irrepbarbase}[1]{%
+    \settoheight{\irrepbarheight}{\irrepbase{#1}}%
+    \settowidth{\irrepwidth}{\irrepbase{#1}}%
+    \makebox[0pt][l]{\irrepbase{#1}}%
+    \rule[1.2\irrepbarheight]{\irrepwidth}{\irrepbarthickness}%
+}
+
+%% Commands for typesetting of irreps
+\def\primes#1#2{\count0=#1 \loop \ifnum\count0>0 \advance\count0 by -1 #2\repeat}
+\newcommand{\irrep}[2][0]{\ensuremath{\irrepbase{#2}^{\primes{#1}{\prime}}}}
+\newcommand{\irrepbar}[2][0]{\ensuremath{\irrepbarbase{#2}^{\primes{#1}{\prime}}}}
+\newcommand{\irrepsub}[3][0]{\ensuremath{\irrep[#1]{#2}_\text{\textbf{#3}}}}
+\newcommand{\irrepbarsub}[3][0]{\ensuremath{\irrepbar[#1]{#2}_\text{\textbf{#3}}}}%
+
+%% Commands for typesetting of roots and weights
+\newcommand\commasymbol{,}
+\begingroup\lccode`~=`, \lowercase{\endgroup\def\comma{\mathcode`\,=\string"8000 \def~{\text{,}\,}}}
+\begingroup\lccode`~=`, \lowercase{\endgroup\def\nocomma{\mathcode`\,=\string"8000 \def~{}}}
+\begingroup\lccode`~=`, \lowercase{\endgroup\def\nocommaspace{\mathcode`\,=\string"8000 \def~{\;\;}}}
+\newcommand\dynkincomma[1]{\ensuremath{(\comma #1)}}
+\newcommand\dynkin[1]{\ensuremath{(\nocomma #1)}}
+\newcommand\weight[1]{\setlength\fboxrule{0pt}\setlength{\fboxsep}{0.3pt}\fbox{\setlength\fboxrule{.7pt}\setlength{\fboxsep}{3pt}\fbox{$\mathtt{\vphantom{-1}\nocommaspace #1}$}}}
+\newcommand\rootomega[1]{\setlength\fboxrule{0pt}\setlength{\fboxsep}{0.3pt}\fbox{\setlength\fboxrule{.7pt}\setlength{\fboxsep}{3pt}\fbox{$\mathtt{\vphantom{-1}\nocommaspace #1}$}}}
+\newcommand\weightalpha\dynkincomma
+\newcommand\weightorthogonal\dynkincomma
+\newcommand\rootorthogonal\dynkincomma

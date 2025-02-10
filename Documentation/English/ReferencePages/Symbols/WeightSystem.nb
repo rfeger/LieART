@@ -1,0 +1,1885 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     67531,       1877]
+NotebookOptionsPosition[     57702,       1665]
+NotebookOutlinePosition[     58515,       1691]
+CellTagsIndexPosition[     58435,       1686]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["WeightSystem", "ObjectName",
+ CellID->95096731,ExpressionUUID->"96745cd7-f755-bd42-b2b0-58a7a3dbc5e5"],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo",ExpressionUUID->"1568782e-cc60-ef44-a9ea-635c5e3e6719"],
+ Cell[BoxData[
+  RowBox[{
+   ButtonBox["WeightSystem",
+    BaseStyle->"Link",
+    ButtonData->"paclet:LieART/ref/WeightSystem"], "[", 
+   StyleBox["irrep", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+  "c3639423-9b3b-4f48-81c5-3342f910dab5"],
+ " \[LineSeparator]constructs the weight system of ",
+ Cell[BoxData[
+  StyleBox["irrep", "TI"]], "InlineFormula",ExpressionUUID->
+  "f71f1433-67f1-3c4f-84df-32b3293b2442"],
+ "."
+}], "Usage",
+ CellChangeTimes->{{3.947669872259823*^9, 3.9476698929508247`*^9}, {
+  3.9481772148163815`*^9, 3.9481772148163815`*^9}},
+ CellID->142816823,ExpressionUUID->"a29ed22c-a459-4945-a9c5-e68e9c1464f9"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{"WeightSystem", "[", 
+   StyleBox["irrep", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+  "f074dad7-2353-6a47-9a43-ffa9647e11cd"],
+ " also takes account for weight multiplicities."
+}], "Notes",
+ CellChangeTimes->{3.948179081315777*^9},
+ CellID->449829305,ExpressionUUID->"ee807468-9983-1a4b-91c9-7669e295604b"],
+
+Cell["The weights are sorted by their weight level.", "Notes",
+ CellChangeTimes->{3.948179110630028*^9},
+ CellID->226969452,ExpressionUUID->"55753c69-95ca-b545-aeb6-574abcb5909a"],
+
+Cell[TextData[{
+ "Options for ",
+ Cell[BoxData[
+  RowBox[{"WeightSystem", "[", 
+   StyleBox["irrep", "TI"], "]"}]], "InlineFormula",ExpressionUUID->
+  "ff284a7c-13da-0144-a246-274a60e40adc"],
+ ":"
+}], "Notes",
+ CellChangeTimes->{{3.9481791180753613`*^9, 3.9481791180966873`*^9}},
+ CellID->86408364,ExpressionUUID->"13398248-8bc3-1647-a362-c878687871d7"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "ModInfo",ExpressionUUID->
+     "81699103-c09a-8e41-8373-d34df30293f6"], 
+    ButtonBox["SpindleShape",
+     BaseStyle->"Link",
+     ButtonData->"paclet:LieART/ref/SpindleShape"], 
+    ButtonBox["False",
+     BaseStyle->"Link",
+     ButtonData->"paclet:ref/False"], Cell["\<\
+whether to displays the weight system in a spindle shape with rows for equal \
+weight level\
+\>", "TableText",ExpressionUUID->"e06b5e91-466b-a641-9ce1-9c5b68f0a305"]}
+  }]], "3ColumnTableMod",
+ CellChangeTimes->{{3.948179242812113*^9, 3.9481792814581833`*^9}},
+ CellID->490121623,ExpressionUUID->"fb06044e-0024-c944-9bfc-a3e1be25bce0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "See Also",
+ Cell[BoxData[
+  TemplateBox[{"SeeAlso", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related reference (function) pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "8b23cda4-6983-f146-be5e-b59515c771c0"]
+}], "SeeAlsoSection",
+ CellID->21444910,ExpressionUUID->"b83b70cb-cd07-f649-b0c6-80617e87ba5b"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["RootSystem",
+   BaseStyle->"Link",
+   ButtonData->"paclet:LieART/ref/RootSystem"]], "InlineSeeAlsoFunction",
+  TaggingRules->{"PageType" -> "Function"},ExpressionUUID->
+  "cdcf7977-6ea4-c74b-88b0-190872775029"],
+ Cell[BoxData[
+  RowBox[{
+  Cell[TextData[StyleBox[
+   " \[FilledVerySmallSquare] ", "InlineSeparator"]],ExpressionUUID->
+    "6192a19c-ad31-9648-893a-5d4ededc29fe"], 
+   DynamicModuleBox[{$CellContext`nbobj$$ = NotebookObject[
+    "5209291b-27e0-d44b-b38b-4cf8ef9b9cfe", 
+     "fecc76f3-e496-0e4d-88fc-ffee88c328d1"], $CellContext`cellobj$$ = 
+    CellObject[
+    "cb045b7e-a15d-244d-88c1-0e0a8361a1ab", 
+     "f7ddbd5d-f342-a048-8788-38425da0804a"]}, 
+    TemplateBox[{
+      GraphicsBox[{{
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         CircleBox[{0, 0}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{0, 0.62}, {0, -0.62}}]}, {
+         Thickness[0.06], 
+         StrokeForm[
+          Hue[0.4167, 0.406, 0.502]], 
+         LineBox[{{-0.62, 0}, {0.62, 0}}]}}, 
+       ImagePadding -> {{1., 1.}, {2.4, 1.}}, ImageSize -> 16, 
+       PlotRange -> {{-1.06, 1.06}, {-1.06, 1.06}}, 
+       BaselinePosition -> (Center -> 
+        Center)], $CellContext`nbobj$$, $CellContext`cellobj$$},
+     "InlineListingAddButton"],
+    Initialization:>($CellContext`nbobj$$ = 
+      EvaluationNotebook[]; $CellContext`cellobj$$ = EvaluationCell[])]}]], 
+  "InlineListingAddButton",ExpressionUUID->
+  "cb045b7e-a15d-244d-88c1-0e0a8361a1ab"]
+}], "SeeAlso",
+ CellChangeTimes->{{3.94767002877985*^9, 3.947670031013214*^9}},
+ CellID->89213818,ExpressionUUID->"3b2e4f12-01b2-e94a-83ed-f965a47233c6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Tech Notes",
+ Cell[BoxData[
+  TemplateBox[{"TechNotes", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Insert links to related tech notes.", "MoreInfoText"], BaseStyle -> 
+       "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "14a2661d-0288-6348-81c2-97a6cb113032"]
+}], "TechNotesSection",
+ CellID->33808317,ExpressionUUID->"4370337a-4abc-0a40-b427-e0b1596e3dea"],
+
+Cell["XXXX", "Tutorials",
+ CellID->575653767,ExpressionUUID->"581090bc-c9e9-a442-85af-142d47491a15"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "MoreAboutSection",
+ CellID->135342508,ExpressionUUID->"a2793fb1-f324-ca40-b97c-14ea4542ccdc"],
+
+Cell[TextData[ButtonBox["LieART",
+ BaseStyle->"Link",
+ ButtonData->"paclet:LieART/guide/LieART"]], "MoreAbout",
+ CellChangeTimes->{{3.9476700358403187`*^9, 3.947670040042637*^9}},
+ CellID->98516797,ExpressionUUID->"fe22990c-eb9f-cf40-9f89-b8950f4c9820"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Related Links",
+ Cell[BoxData[
+  TemplateBox[{"RelatedLinks", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Insert links to any related page, including web pages.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "12725b38-189b-b54e-9e54-cf126ccb355f"]
+}], "RelatedLinksSection",
+ CellID->46201887,ExpressionUUID->"8b8911d3-d0af-1c4b-a394-9832bb7a99c7"],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->706114715,ExpressionUUID->"da57cf74-b848-1548-88a9-fc2efc80e7fd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Examples Initialization",
+ Cell[BoxData[
+  TemplateBox[{"ExamplesInitialization", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Input that is to be evaluated before any examples are run, e.g. \
+Needs[\[Ellipsis]].", "MoreInfoText"], BaseStyle -> "IFrameBox"]], 
+     "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "31a429ae-f70f-2c42-b779-eae2ba3f7532"]
+}], "ExamplesInitializationSection",
+ CellID->279099079,ExpressionUUID->"8472e356-b8e9-a143-b86a-b0ccf684c8fa"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<LieART`\>\"", "]"}]], "ExampleInitialization",
+ CellChangeTimes->{3.9476698987819405`*^9},
+ CellID->110452149,ExpressionUUID->"d4841bf5-22f4-0048-988e-e18e965d195a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox[
+      RowBox[{"Basic", " ", "Examples"}], "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->728309813,ExpressionUUID->"56a5c1bc-f1cc-5841-ac1e-51579eb301e6"],
+
+Cell[TextData[{
+ "Weight system of the ",
+ StyleBox["8",
+  FontWeight->"Bold"],
+ " of SU(3):"
+}], "ExampleText",
+ CellChangeTimes->{3.947669905689913*^9},
+ CellID->128147135,ExpressionUUID->"e89813ec-5b88-9647-a198-936e43b7da8b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"WeightSystem", "[", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "8", "]"}], "]"}], "//", 
+  "InputForm"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->326458751,ExpressionUUID->"5e3963cc-b641-6441-ba82-66ecd1246a34"],
+
+Cell["\<\
+{Weight[A][1, 1], Weight[A][-1, 2], Weight[A][2, -1], Weight[A][0, 0], \
+Weight[A][0, 0], Weight[A][-2, 1], Weight[A][1, -2], Weight[A][-1, -1]}\
+\>", "Output",
+ CellChangeTimes->{3.9478265742143517`*^9},
+ CellLabel->"Out[1]//InputForm=",
+ CellID->165003724,ExpressionUUID->"ad55ca33-6dce-754e-884b-0d7ac5f91435"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "StandardForm"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->196669618,ExpressionUUID->"0909cbbb-59c0-7541-a7aa-414995e500b6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"(1, 1)\"\>", ",", "\<\"(-1, 2)\"\>", ",", "\<\"(2, -1)\"\>", 
+   ",", "\<\"(0, 0)\"\>", ",", "\<\"(0, 0)\"\>", ",", "\<\"(-2, 1)\"\>", 
+   ",", "\<\"(1, -2)\"\>", ",", "\<\"(-1, -1)\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.9478265745997715`*^9},
+ CellLabel->"Out[2]//StandardForm=",
+ CellID->16573225,ExpressionUUID->"be1f08ae-a32d-f64b-b3c1-19db728ac3ff"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Textbook formatting of weights as boxes in ",
+ ButtonBox["TraditionalForm",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/TraditionalForm"],
+ ":"
+}], "ExampleText",
+ CellChangeTimes->{{3.9476699234222755`*^9, 3.9476699379510117`*^9}},
+ CellID->281136111,ExpressionUUID->"f9d1a7b2-f3ad-a241-8f8b-7471b4f97cee"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "TraditionalForm"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->221170653,ExpressionUUID->"0bbec531-acf9-0048-bdb2-dec4d29c4bae"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FormBox[
+     TagBox[GridBox[{
+        {"1", "1"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {
+         RowBox[{"-", "1"}], "2"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"2", 
+         RowBox[{"-", "1"}]}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"0", "0"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"0", "0"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {
+         RowBox[{"-", "2"}], "1"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"1", 
+         RowBox[{"-", "2"}]}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {
+         RowBox[{"-", "1"}], 
+         RowBox[{"-", "1"}]}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947826574793783*^9},
+ CellLabel->"Out[3]//TraditionalForm=",
+ CellID->690344823,ExpressionUUID->"be42be70-f7ee-fe4d-a8f1-e83ebe1f63a8"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Spindle shape formatting with the option ",
+ ButtonBox["SpindleShape",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/SpindleShape"],
+ ":"
+}], "ExampleText",
+ CellChangeTimes->{{3.9476699468640633`*^9, 3.9476699497292633`*^9}},
+ CellID->12806431,ExpressionUUID->"8dc07549-bb39-4a4c-acf8-263cfa46486d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WeightSystem", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "8", "]"}], ",", 
+   RowBox[{"SpindleShape", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->247874690,ExpressionUUID->"905685c9-fa34-4241-a064-3082f481195d"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          
+          GridBox[{{"1", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "2"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"2", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          
+          GridBox[{{"0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          
+          GridBox[{{"0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "2"}], "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "2"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Center}}},
+    GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
+   "Column"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478265749786854`*^9},
+ CellLabel->"Out[4]=",
+ CellID->233663043,ExpressionUUID->"347ce388-128e-da4d-ba03-059d91369515"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "1885b0d6-3410-1c40-a0af-429477236e14"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->5810091,ExpressionUUID->"5581085b-98d2-4e46-b158-eea99ee6ed2c"],
+
+Cell[TextData[{
+ "Weight system of the ",
+ StyleBox["10",
+  FontWeight->"Bold"],
+ " of SU(5):"
+}], "ExampleText",
+ CellChangeTimes->{3.9476699646128807`*^9},
+ CellID->249116704,ExpressionUUID->"c881a035-bb35-a040-b1b7-71da0007cf90"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WeightSystem", "[", 
+  RowBox[{
+   RowBox[{"Irrep", "[", "SU5", "]"}], "[", "10", "]"}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->210762630,ExpressionUUID->"f76797eb-4fcd-a842-bf91-e4e2c0d06e24"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FormBox[
+     TagBox[GridBox[{
+        {"0", "1", "0", "0"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"1", 
+         RowBox[{"-", "1"}], "1", "0"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {
+         RowBox[{"-", "1"}], "0", "1", "0"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"1", "0", 
+         RowBox[{"-", "1"}], "1"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {
+         RowBox[{"-", "1"}], "1", 
+         RowBox[{"-", "1"}], "1"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"1", "0", "0", 
+         RowBox[{"-", "1"}]}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {
+         RowBox[{"-", "1"}], "1", "0", 
+         RowBox[{"-", "1"}]}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"0", 
+         RowBox[{"-", "1"}], "0", "1"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"0", 
+         RowBox[{"-", "1"}], "1", 
+         RowBox[{"-", "1"}]}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm], ",", 
+    FormBox[
+     TagBox[GridBox[{
+        {"0", "0", 
+         RowBox[{"-", "1"}], "0"}
+       },
+       AutoDelete->False,
+       GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+       GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+      "Grid"],
+     TraditionalForm]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478265751635895`*^9},
+ CellLabel->"Out[1]=",
+ CellID->39539923,ExpressionUUID->"1a5c8b9a-36b0-aa45-9276-b7326980a784"]
+}, Open  ]],
+
+Cell["Weight levels for each weight:", "ExampleText",
+ CellChangeTimes->{3.9476699782094727`*^9},
+ CellID->437233915,ExpressionUUID->"a3a918bf-42c0-d441-9596-9f7f2ee902c0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"#", ",", 
+       RowBox[{"WeightLevel", "[", 
+        RowBox[{"#", ",", 
+         RowBox[{
+          RowBox[{"Irrep", "[", "SU5", "]"}], "[", "10", "]"}]}], "]"}]}], 
+      "}"}], "&"}], "/@", 
+    RowBox[{"WeightSystem", "[", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU5", "]"}], "[", "10", "]"}], "]"}]}], ",", 
+   RowBox[{"TableHeadings", "->", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Weight\>\"", ",", "\"\<Level\>\""}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"TableAlignments", "->", "Center"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.947669983056671*^9, 3.9476699830716896`*^9}},
+ CellLabel->"In[2]:=",
+ CellID->746461024,ExpressionUUID->"723823e9-2a46-b142-b12c-61ae5e529a5a"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   TagBox[GridBox[{
+      {
+       TagBox["\<\"Weight\"\>",
+        HoldForm], 
+       TagBox["\<\"Level\"\>",
+        HoldForm]},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"0", "1", "0", "0"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "0"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"1", 
+            RowBox[{"-", "1"}], "1", "0"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "1"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {
+            RowBox[{"-", "1"}], "0", "1", "0"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "2"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"1", "0", 
+            RowBox[{"-", "1"}], "1"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "2"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {
+            RowBox[{"-", "1"}], "1", 
+            RowBox[{"-", "1"}], "1"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "3"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"1", "0", "0", 
+            RowBox[{"-", "1"}]}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "3"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {
+            RowBox[{"-", "1"}], "1", "0", 
+            RowBox[{"-", "1"}]}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "4"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"0", 
+            RowBox[{"-", "1"}], "0", "1"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "4"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"0", 
+            RowBox[{"-", "1"}], "1", 
+            RowBox[{"-", "1"}]}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "5"},
+      {
+       FormBox[
+        TagBox[GridBox[{
+           {"0", "0", 
+            RowBox[{"-", "1"}], "0"}
+          },
+          AutoDelete->False,
+          GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+         "Grid"],
+        TraditionalForm], "6"}
+     },
+     GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Center}}},
+     GridBoxDividers->{
+      "Columns" -> {{False}}, "Rows" -> {False, True, {False}, False}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[2.0999999999999996`]}, 
+         Offset[0.27999999999999997`]}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}}],
+    {None, OutputFormsDump`HeadedColumns}],
+   Function[BoxForm`e$, 
+    TableForm[
+    BoxForm`e$, TableHeadings -> {None, {"Weight", "Level"}}, TableAlignments -> 
+     Center]]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478265753172417`*^9},
+ CellLabel->"Out[2]//TableForm=",
+ CellID->107727746,ExpressionUUID->"f30600a5-3321-5d4a-b864-39ccb190cd3f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WeightSystem", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU5", "]"}], "[", "10", "]"}], ",", 
+   RowBox[{"SpindleShape", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->189889873,ExpressionUUID->"4ec0197e-a04b-9340-a086-bfaeeb7cdf76"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          
+          GridBox[{{"0", "1", "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "1"}], "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "0", "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", "0", 
+             RowBox[{"-", "1"}], "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}], "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", "0", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Center}}},
+    GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
+   "Column"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947826575580263*^9},
+ CellLabel->"Out[3]=",
+ CellID->165133198,ExpressionUUID->"be13028e-ff7c-ee45-a147-5c3145d277ed"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "9da167bb-bb2b-b846-bee6-7b21fffdf18c"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->40294685,ExpressionUUID->"362f097f-5671-354a-bac5-cab6e78b1789"],
+
+Cell[TextData[{
+ "Weight system of the ",
+ StyleBox["16",
+  FontWeight->"Bold"],
+ " of SO(10):"
+}], "ExampleText",
+ CellChangeTimes->{3.9476700032992344`*^9},
+ CellID->432914930,ExpressionUUID->"49eef307-65ca-6244-bdf1-23b4993729b0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WeightSystem", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "D", "]"}], "[", 
+    RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "1"}], "]"}], ",", 
+   RowBox[{"SpindleShape", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->181031520,ExpressionUUID->"5542d854-0b6f-1c49-a336-ca8d3b13e54e"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          
+          GridBox[{{"0", "0", "0", "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "1", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "1", 
+             RowBox[{"-", "1"}], "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "1", "0", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "1"}], "0", "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "0", "0", "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "0", "1", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", "0", 
+             RowBox[{"-", "1"}], "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}], "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", "0", "0", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", "0", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "0", "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "1", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", 
+             RowBox[{"-", "1"}], "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "0", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Center}}},
+    GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
+   "Column"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478265758498154`*^9},
+ CellLabel->"Out[1]=",
+ CellID->94202123,ExpressionUUID->"1a046802-8cc1-4942-b07b-66b7c9dde3cd"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "8bc7cc40-a358-dd4d-9788-2081cb054228"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->165359454,ExpressionUUID->"ca483515-0268-5740-98d0-3528a7362468"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"WeightSystem", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "E6", "]"}], "[", "27", "]"}], ",", 
+   RowBox[{"SpindleShape", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->503825835,ExpressionUUID->"5ee78bce-2689-064b-ba1e-e157e495e7e8"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          
+          GridBox[{{"1", "0", "0", "0", "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", "0", "0", "0", "0"}}, AutoDelete -> 
+           False, GridBoxFrame -> {
+            "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "1", "0", "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", 
+             RowBox[{"-", "1"}], "1", "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "0", 
+             RowBox[{"-", "1"}], "1", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "0", "1", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "0", "0", 
+             RowBox[{"-", "1"}], "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "1", 
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "1", "0", 
+             RowBox[{"-", "1"}], 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "1", 
+             RowBox[{"-", "1"}], "0", "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "1", 
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "1"}], "0", "0", "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "0", "0", "0", "1", "0"}}, AutoDelete -> 
+           False, GridBoxFrame -> {
+            "ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "1", "0", 
+             RowBox[{"-", "1"}], "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "1"}], "0", "1", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "0", "0", "1", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", 
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}], "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "0", "1", 
+             RowBox[{"-", "1"}], "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", "0", 
+             RowBox[{"-", "1"}], "0", "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", 
+             RowBox[{"-", "1"}], "0", "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"1", "0", "0", "0", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{
+             RowBox[{"-", "1"}], "1", "0", "0", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm], 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "0", "0", "0", "1"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", 
+             RowBox[{"-", "1"}], "1", "0", "0", 
+             RowBox[{"-", "1"}]}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", 
+             RowBox[{"-", "1"}], "1", "0", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "0", 
+             RowBox[{"-", "1"}], "1", "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]},
+     {
+      TemplateBox[{"\[ThinSpace]", "\" \"", 
+        FormBox[
+         TagBox[
+          GridBox[{{"0", "0", "0", "0", 
+             RowBox[{"-", "1"}], "0"}}, AutoDelete -> False, 
+           GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+            GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
+         TraditionalForm]},
+       "RowWithSeparators"]}
+    },
+    DefaultBaseStyle->"Column",
+    GridBoxAlignment->{"Columns" -> {{Center}}},
+    GridBoxItemSize->{"Columns" -> {{All}}, "Rows" -> {{All}}}],
+   "Column"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478265762821274`*^9},
+ CellLabel->"Out[1]=",
+ CellID->13126543,ExpressionUUID->"2e7b92a0-2a36-e04b-923d-01a59ead1e88"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "More Examples",
+ Cell[BoxData[
+  TemplateBox[{"MoreExamples", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell["Extended examples in standardized sections.", "MoreInfoText"], 
+       BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "2131f705-8840-3147-bb46-9f2d257b4ab5"]
+}], "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->201175511,ExpressionUUID->"15931f61-87f8-0841-a61a-b0f39393d639"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Scope", "ExampleSection",ExpressionUUID->
+   "570c138b-e0bb-7046-923c-d19d930b8509"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->14590824,ExpressionUUID->"f95b39e4-ef8a-7141-bddb-e1352de4057c"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Generalizations & Extensions", "ExampleSection",ExpressionUUID->
+   "dd3c266f-76d7-754c-b050-da96cddcda96"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->8121121,ExpressionUUID->"67f6b367-1d09-ba4d-b1df-6a8be7adc0a3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Options", "ExampleSection",ExpressionUUID->
+   "d0bc025b-0dbd-5741-9464-88202d019af0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->392240713,ExpressionUUID->"e11801ff-e617-0d4d-a406-3fc476a0a7f9"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "7570e956-4efc-cc45-a277-aa86d0218b84"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->144391298,ExpressionUUID->"f4dcffc6-f5ad-2844-ad94-1c4ab6a6331b"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "XXXX", "ExampleSubsection",ExpressionUUID->
+   "d350a600-c0f3-1347-99bb-961c22438711"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->32947941,ExpressionUUID->"6a2b4741-efb6-5640-9899-6933d6a3e253"]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Applications", "ExampleSection",ExpressionUUID->
+   "39b7850a-336c-924c-b5e0-6b32496019c2"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->291494674,ExpressionUUID->"f94ad5c5-1331-a744-9cfc-867d7232a618"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Properties & Relations", "ExampleSection",ExpressionUUID->
+   "9b33f3ef-4a08-9347-916f-928b4cf4f421"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->317038052,ExpressionUUID->"e4b13405-e843-cd4f-95de-a10ed141986f"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Possible Issues", "ExampleSection",ExpressionUUID->
+   "76daeaf7-f551-ae43-a94b-eb4da181b510"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->134190291,ExpressionUUID->"86293280-23db-594f-8832-01829dd527ad"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Interactive Examples", "ExampleSection",ExpressionUUID->
+   "0706ee62-4c05-0743-9afc-e0d2838dbdf0"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->212214108,ExpressionUUID->"22fdfccb-7b2f-eb49-8f10-fd874d03e60e"],
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "Neat Examples", "ExampleSection",ExpressionUUID->
+   "035651bf-56a4-af46-b843-2185b2582901"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->521459396,ExpressionUUID->"46bae02d-8c81-dd4e-9dd4-fe75c4424ed8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->190637561,ExpressionUUID->"4cf21148-34f7-a54e-82df-7b79308aaba1"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"98a6deb3-5923-a747-b59c-57aaa9ce6c39"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"358beeb8-bb9f-714a-a7dd-cd54cbbb801f"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"005ed3a0-34a1-3d42-9a7e-f47d92ade875"]
+}], "History",
+ CellID->153142606,ExpressionUUID->"8d0ccfb9-206a-264a-8a34-b2cc735a1b9e"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Categorization",
+ Cell[BoxData[
+  TemplateBox[{"Metadata", 
+    Cell[
+     BoxData[
+      FrameBox[
+       Cell[
+       "Metadata such as page URI, context, and type of documentation page.", 
+        "MoreInfoText"], BaseStyle -> "IFrameBox"]], "MoreInfoTextOuter"]},
+   "MoreInfoOpenerButtonTemplate"]],ExpressionUUID->
+  "89c12e3d-54bb-cd48-b83c-3ac6374963d6"]
+}], "CategorizationSection",
+ CellID->230867509,ExpressionUUID->"569bd625-20ca-b549-8c5c-24da225625ee"],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->484273101,ExpressionUUID->"d9184f8f-8298-0d4a-bd28-bd66f85e68c5"],
+
+Cell["LieART", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->267956980,ExpressionUUID->"32ca3100-3085-7a42-a5d2-ee05069cf10c"],
+
+Cell["", "Categorization",
+ CellLabel->"Context",
+ CellID->188779821,ExpressionUUID->"6a7caa99-ddd4-e347-b9f0-d1c6e32f7746"],
+
+Cell["LieART/ref/WeightSystem", "Categorization",
+ CellLabel->"URI",
+ CellID->58609610,ExpressionUUID->"98d70f7e-167b-c644-960f-f9c8f5a920aa"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->73861052,ExpressionUUID->"26379f04-6b41-3446-8d11-6f901f4ca29d"],
+
+Cell["XXXX", "Keywords",
+ CellID->1165086,ExpressionUUID->"c0ace5aa-7b9d-bc45-8abb-c8927536e1e1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->45484120,ExpressionUUID->"ab0f697a-9a51-8647-b28c-9e65f1692e98"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->95500674,ExpressionUUID->"ca5e91be-2d9f-584c-bb4d-9b961568ee94"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->4920202,ExpressionUUID->"f663ed0a-19b7-2b4a-a16a-96a63248f764"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->905854144,ExpressionUUID->"77cf9477-701b-7d46-8b37-2ede7cec972e"],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->516725882,ExpressionUUID->"2f0501a1-5736-a14f-ae31-9c99df8fa5f3"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1150.8, 1222.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules-><|"Paclet" -> "LieART"|>,
+CommonDefaultFormatTypes->{"Output"->TraditionalForm},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (December 26, 2024)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"5209291b-27e0-d44b-b38b-4cf8ef9b9cfe"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[51980, 1492, 487, 13, 56, "ExtendedExamplesSection",ExpressionUUID->"15931f61-87f8-0841-a61a-b0f39393d639",
+   CellTags->"ExtendedExamples",
+   CellID->201175511]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 58240, 1679}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 108, 1, 72, "ObjectName",ExpressionUUID->"96745cd7-f755-bd42-b2b0-58a7a3dbc5e5",
+ CellID->95096731],
+Cell[687, 25, 729, 17, 76, "Usage",ExpressionUUID->"a29ed22c-a459-4945-a9c5-e68e9c1464f9",
+ CellID->142816823],
+Cell[1419, 44, 354, 8, 26, "Notes",ExpressionUUID->"ee807468-9983-1a4b-91c9-7669e295604b",
+ CellID->449829305],
+Cell[1776, 54, 179, 2, 26, "Notes",ExpressionUUID->"55753c69-95ca-b545-aeb6-574abcb5909a",
+ CellID->226969452],
+Cell[1958, 58, 353, 9, 26, "Notes",ExpressionUUID->"13398248-8bc3-1647-a362-c878687871d7",
+ CellID->86408364],
+Cell[2314, 69, 653, 14, 37, "3ColumnTableMod",ExpressionUUID->"fb06044e-0024-c944-9bfc-a3e1be25bce0",
+ CellID->490121623]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3004, 88, 457, 13, 38, "SeeAlsoSection",ExpressionUUID->"b83b70cb-cd07-f649-b0c6-80617e87ba5b",
+ CellID->21444910],
+Cell[3464, 103, 1747, 43, 21, "SeeAlso",ExpressionUUID->"3b2e4f12-01b2-e94a-83ed-f965a47233c6",
+ CellID->89213818]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5248, 151, 434, 12, 39, "TechNotesSection",ExpressionUUID->"4370337a-4abc-0a40-b427-e0b1596e3dea",
+ CellID->33808317],
+Cell[5685, 165, 100, 1, 17, "Tutorials",ExpressionUUID->"581090bc-c9e9-a442-85af-142d47491a15",
+ CellID->575653767]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5822, 171, 117, 1, 37, "MoreAboutSection",ExpressionUUID->"a2793fb1-f324-ca40-b97c-14ea4542ccdc",
+ CellID->135342508],
+Cell[5942, 174, 253, 4, 17, "MoreAbout",ExpressionUUID->"fe22990c-eb9f-cf40-9f89-b8950f4c9820",
+ CellID->98516797]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6232, 183, 471, 13, 38, "RelatedLinksSection",ExpressionUUID->"8b8911d3-d0af-1c4b-a394-9832bb7a99c7",
+ CellID->46201887],
+Cell[6706, 198, 103, 1, 17, "RelatedLinks",ExpressionUUID->"da57cf74-b848-1548-88a9-fc2efc80e7fd",
+ CellID->706114715]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6846, 204, 530, 14, 68, "ExamplesInitializationSection",ExpressionUUID->"8472e356-b8e9-a143-b86a-b0ccf684c8fa",
+ CellID->279099079],
+Cell[7379, 220, 207, 3, 45, "ExampleInitialization",ExpressionUUID->"d4841bf5-22f4-0048-988e-e18e965d195a",
+ CellID->110452149]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7623, 228, 442, 12, 69, "PrimaryExamplesSection",ExpressionUUID->"56a5c1bc-f1cc-5841-ac1e-51579eb301e6",
+ CellID->728309813],
+Cell[8068, 242, 229, 7, 23, "ExampleText",ExpressionUUID->"e89813ec-5b88-9647-a198-936e43b7da8b",
+ CellID->128147135],
+Cell[CellGroupData[{
+Cell[8322, 253, 263, 7, 25, "Input",ExpressionUUID->"5e3963cc-b641-6441-ba82-66ecd1246a34",
+ CellID->326458751],
+Cell[8588, 262, 323, 6, 24, "Output",ExpressionUUID->"ad55ca33-6dce-754e-884b-0d7ac5f91435",
+ CellID->165003724]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8948, 273, 159, 3, 25, "Input",ExpressionUUID->"0909cbbb-59c0-7541-a7aa-414995e500b6",
+ CellID->196669618],
+Cell[9110, 278, 406, 7, 24, "Output",ExpressionUUID->"be1f08ae-a32d-f64b-b3c1-19db728ac3ff",
+ CellID->16573225]
+}, Open  ]],
+Cell[9531, 288, 328, 8, 23, "ExampleText",ExpressionUUID->"f9d1a7b2-f3ad-a241-8f8b-7471b4f97cee",
+ CellID->281136111],
+Cell[CellGroupData[{
+Cell[9884, 300, 162, 3, 25, "Input",ExpressionUUID->"0bbec531-acf9-0048-bdb2-dec4d29c4bae",
+ CellID->221170653],
+Cell[10049, 305, 2686, 84, 27, "Output",ExpressionUUID->"be42be70-f7ee-fe4d-a8f1-e83ebe1f63a8",
+ CellID->690344823]
+}, Open  ]],
+Cell[12750, 392, 326, 8, 23, "ExampleText",ExpressionUUID->"8dc07549-bb39-4a4c-acf8-263cfa46486d",
+ CellID->12806431],
+Cell[CellGroupData[{
+Cell[13101, 404, 295, 7, 25, "Input",ExpressionUUID->"905685c9-fa34-4241-a064-3082f481195d",
+ CellID->247874690],
+Cell[13399, 413, 3436, 90, 117, "Output",ExpressionUUID->"347ce388-128e-da4d-ba03-059d91369515",
+ CellID->233663043]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16872, 508, 240, 5, 16, "ExampleDelimiter",ExpressionUUID->"5581085b-98d2-4e46-b158-eea99ee6ed2c",
+ CellID->5810091],
+Cell[17115, 515, 232, 7, 23, "ExampleText",ExpressionUUID->"c881a035-bb35-a040-b1b7-71da0007cf90",
+ CellID->249116704],
+Cell[CellGroupData[{
+Cell[17372, 526, 227, 5, 25, "Input",ExpressionUUID->"f76797eb-4fcd-a842-bf91-e4e2c0d06e24",
+ CellID->210762630],
+Cell[17602, 533, 3494, 108, 49, "Output",ExpressionUUID->"1a5c8b9a-36b0-aa45-9276-b7326980a784",
+ CellID->39539923]
+}, Open  ]],
+Cell[21111, 644, 172, 2, 23, "ExampleText",ExpressionUUID->"a3a918bf-42c0-d441-9596-9f7f2ee902c0",
+ CellID->437233915],
+Cell[CellGroupData[{
+Cell[21308, 650, 842, 23, 42, "Input",ExpressionUUID->"723823e9-2a46-b142-b12c-61ae5e529a5a",
+ CellID->746461024],
+Cell[22153, 675, 4835, 159, 247, "Output",ExpressionUUID->"f30600a5-3321-5d4a-b864-39ccb190cd3f",
+ CellID->107727746]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27025, 839, 296, 7, 25, "Input",ExpressionUUID->"4ec0197e-a04b-9340-a086-bfaeeb7cdf76",
+ CellID->189889873],
+Cell[27324, 848, 4460, 114, 162, "Output",ExpressionUUID->"be13028e-ff7c-ee45-a147-5c3145d277ed",
+ CellID->165133198]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31833, 968, 241, 5, 16, "ExampleDelimiter",ExpressionUUID->"362f097f-5671-354a-bac5-cab6e78b1789",
+ CellID->40294685],
+Cell[32077, 975, 233, 7, 23, "ExampleText",ExpressionUUID->"49eef307-65ca-6244-bdf1-23b4993729b0",
+ CellID->432914930],
+Cell[CellGroupData[{
+Cell[32335, 986, 348, 8, 25, "Input",ExpressionUUID->"5542d854-0b6f-1c49-a336-ca8d3b13e54e",
+ CellID->181031520],
+Cell[32686, 996, 6991, 176, 252, "Output",ExpressionUUID->"1a046802-8cc1-4942-b07b-66b7c9dde3cd",
+ CellID->94202123]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39726, 1178, 242, 5, 16, "ExampleDelimiter",ExpressionUUID->"ca483515-0268-5740-98d0-3528a7362468",
+ CellID->165359454],
+Cell[CellGroupData[{
+Cell[39993, 1187, 295, 7, 25, "Input",ExpressionUUID->"5ee78bce-2689-064b-ba1e-e157e495e7e8",
+ CellID->503825835],
+Cell[40291, 1196, 11628, 289, 388, "Output",ExpressionUUID->"2e7b92a0-2a36-e04b-923d-01a59ead1e88",
+ CellID->13126543]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51980, 1492, 487, 13, 56, "ExtendedExamplesSection",ExpressionUUID->"15931f61-87f8-0841-a61a-b0f39393d639",
+ CellTags->"ExtendedExamples",
+ CellID->201175511],
+Cell[52470, 1507, 240, 5, 32, "ExampleSection",ExpressionUUID->"f95b39e4-ef8a-7141-bddb-e1352de4057c",
+ CellID->14590824],
+Cell[52713, 1514, 262, 5, 20, "ExampleSection",ExpressionUUID->"67f6b367-1d09-ba4d-b1df-6a8be7adc0a3",
+ CellID->8121121],
+Cell[CellGroupData[{
+Cell[53000, 1523, 243, 5, 20, "ExampleSection",ExpressionUUID->"e11801ff-e617-0d4d-a406-3fc476a0a7f9",
+ CellID->392240713],
+Cell[53246, 1530, 246, 5, 23, "ExampleSubsection",ExpressionUUID->"f4dcffc6-f5ad-2844-ad94-1c4ab6a6331b",
+ CellID->144391298],
+Cell[53495, 1537, 245, 5, 19, "ExampleSubsection",ExpressionUUID->"6a2b4741-efb6-5640-9899-6933d6a3e253",
+ CellID->32947941]
+}, Open  ]],
+Cell[53755, 1545, 248, 5, 32, "ExampleSection",ExpressionUUID->"f94ad5c5-1331-a744-9cfc-867d7232a618",
+ CellID->291494674],
+Cell[54006, 1552, 258, 5, 20, "ExampleSection",ExpressionUUID->"e4b13405-e843-cd4f-95de-a10ed141986f",
+ CellID->317038052],
+Cell[54267, 1559, 251, 5, 20, "ExampleSection",ExpressionUUID->"86293280-23db-594f-8832-01829dd527ad",
+ CellID->134190291],
+Cell[54521, 1566, 256, 5, 20, "ExampleSection",ExpressionUUID->"22fdfccb-7b2f-eb49-8f10-fd874d03e60e",
+ CellID->212214108],
+Cell[54780, 1573, 249, 5, 20, "ExampleSection",ExpressionUUID->"46bae02d-8c81-dd4e-9dd4-fe75c4424ed8",
+ CellID->521459396]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55066, 1583, 110, 1, 71, "MetadataSection",ExpressionUUID->"4cf21148-34f7-a54e-82df-7b79308aaba1",
+ CellID->190637561],
+Cell[55179, 1586, 473, 11, 25, "History",ExpressionUUID->"8d0ccfb9-206a-264a-8a34-b2cc735a1b9e",
+ CellID->153142606],
+Cell[CellGroupData[{
+Cell[55677, 1601, 484, 13, 20, "CategorizationSection",ExpressionUUID->"569bd625-20ca-b549-8c5c-24da225625ee",
+ CellID->230867509],
+Cell[56164, 1616, 134, 2, 70, "Categorization",ExpressionUUID->"d9184f8f-8298-0d4a-bd28-bd66f85e68c5",
+ CellID->484273101],
+Cell[56301, 1620, 134, 2, 70, "Categorization",ExpressionUUID->"32ca3100-3085-7a42-a5d2-ee05069cf10c",
+ CellID->267956980],
+Cell[56438, 1624, 124, 2, 70, "Categorization",ExpressionUUID->"6a7caa99-ddd4-e347-b9f0-d1c6e32f7746",
+ CellID->188779821],
+Cell[56565, 1628, 142, 2, 70, "Categorization",ExpressionUUID->"98d70f7e-167b-c644-960f-f9c8f5a920aa",
+ CellID->58609610]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[56744, 1635, 109, 1, 20, "KeywordsSection",ExpressionUUID->"26379f04-6b41-3446-8d11-6f901f4ca29d",
+ CellID->73861052],
+Cell[56856, 1638, 97, 1, 70, "Keywords",ExpressionUUID->"c0ace5aa-7b9d-bc45-8abb-c8927536e1e1",
+ CellID->1165086]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[56990, 1644, 118, 1, 20, "TemplatesSection",ExpressionUUID->"ab0f697a-9a51-8647-b28c-9e65f1692e98",
+ CellID->45484120],
+Cell[57111, 1647, 147, 2, 70, "Template",ExpressionUUID->"ca5e91be-2d9f-584c-bb4d-9b961568ee94",
+ CellID->95500674],
+Cell[57261, 1651, 135, 2, 70, "Template",ExpressionUUID->"f663ed0a-19b7-2b4a-a16a-96a63248f764",
+ CellID->4920202],
+Cell[57399, 1655, 135, 2, 70, "Template",ExpressionUUID->"77cf9477-701b-7d46-8b37-2ede7cec972e",
+ CellID->905854144],
+Cell[57537, 1659, 137, 2, 70, "Template",ExpressionUUID->"2f0501a1-5736-a14f-ae31-9c99df8fa5f3",
+ CellID->516725882]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

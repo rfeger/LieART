@@ -1,0 +1,2956 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     93270,       2948]
+NotebookOptionsPosition[     75034,       2525]
+NotebookOutlinePosition[     75650,       2545]
+CellTagsIndexPosition[     75607,       2542]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["LieART - Quick Start Tutorial", "Title",
+ CellChangeTimes->{{3.9476772301685123`*^9, 3.947677233942892*^9}},
+ CellID->80924673,ExpressionUUID->"f7b9c116-73c0-b545-b062-0b9a3a441719"],
+
+Cell["\<\
+LieART provides functions to perform the most common tasks associated with \
+irreducible representations (irreps) of the classical and exceptional Lie \
+algebras.\
+\>", "Text",
+ CellChangeTimes->{3.947677455584364*^9, 3.9478396501048183`*^9},
+ CellID->126958565,ExpressionUUID->"3e91b973-f18c-0048-9f81-106e1568991c"],
+
+Cell[CellGroupData[{
+
+Cell["This loads the package:", "MathCaption",
+ CellChangeTimes->{3.94767773810289*^9},
+ CellID->309422112,ExpressionUUID->"c0362201-a292-394c-8291-72c4f6b7cde4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"<<", "LieART`"}]], "Input",
+ CellChangeTimes->{3.947677744986368*^9},
+ CellLabel->"In[1]:=",
+ CellID->47492548,ExpressionUUID->"7d56a06d-8525-384a-aafb-0fcd4bc903a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ FormBox["\<\"LieART 2.1.1\"\>", TraditionalForm]], "Print",
+ CellChangeTimes->{3.9478257020745144`*^9, 3.9478266762294445`*^9},
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->329786865,ExpressionUUID->"557b77a9-7986-6a49-a69e-832d99d8dd55"],
+
+Cell[BoxData[
+ FormBox["\<\"last revised 6 February 2025\"\>", TraditionalForm]], "Print",
+ CellChangeTimes->{3.9478257020745144`*^9, 3.9478266762450695`*^9},
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->129822246,ExpressionUUID->"04c37196-273d-2c47-8b70-f9c3da46eb48"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Entering Irreducible Representations", "Section",
+ CellChangeTimes->{3.9476776272755833`*^9},
+ CellID->326602266,ExpressionUUID->"8f7b7733-4f3c-384e-b2a8-7e2a748994c0"],
+
+Cell["\<\
+Irreducible representations (irreps) are internally described by their Dynkin \
+label with a combined head of Irrep and the Lie algebra. \
+\>", "Text",
+ CellID->370080729,ExpressionUUID->"c94dff8e-6b7f-8e44-a9ca-f6117b7d27b4"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     RowBox[{
+      ButtonBox["Irrep",
+       BaseStyle->"Link",
+       ButtonData->"paclet:LieART/ref/Irrep"], "[", 
+      StyleBox["algebraClass", "TI"], "]"}], "[", 
+     StyleBox["label", "TI"], "]"}], Cell[TextData[{
+     "irrep described by its ",
+     Cell[BoxData[
+      StyleBox["algebraClass", "TI"]], "InlineFormula",ExpressionUUID->
+      "99f0b74c-5c3d-4d47-82f6-9fe8f9de3140"],
+     " and Dynkin ",
+     Cell[BoxData[
+      StyleBox["label", "TI"]], "InlineFormula",ExpressionUUID->
+      "cbcc6e0e-addc-0b41-aa8f-5d7fdc1903e3"],
+     "."
+    }], "TableText",ExpressionUUID->"d2aa80d3-13d2-5d42-a07e-9203d750f020"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.9476778222816296`*^9, 3.9476778255434055`*^9}, {
+  3.947677855546421*^9, 3.9476778681755714`*^9}, {3.947677993862604*^9, 
+  3.9476780420655537`*^9}},
+ CellID->241565687,ExpressionUUID->"6414128f-f258-5047-929e-65ba37c7fa1a"],
+
+Cell["Entering irreps by Dynkin label.", "Caption",
+ CellChangeTimes->{3.947677876410879*^9},
+ CellID->72623812,ExpressionUUID->"1f971b12-5ce4-6f4d-9d3a-a30a42a8fc83"],
+
+Cell[TextData[{
+ "The ",
+ Cell[BoxData[
+  StyleBox["algebraClass", "TI"]], "InlineFormula",ExpressionUUID->
+  "98b8502f-9185-bf40-a9aa-4f9d2296d471"],
+ " follows the Dynkin classification of simple Lie algebras and can only be ",
+ StyleBox["A", "InlineCode"],
+ ", ",
+ StyleBox["B", "InlineCode"],
+ ", ",
+ StyleBox["C", "InlineCode"],
+ ", ",
+ StyleBox["D", "InlineCode"],
+ " for the classical algebras and ",
+ StyleBox["E6", "InlineCode"],
+ ", ",
+ StyleBox["E7", "InlineCode"],
+ ", ",
+ StyleBox["E8", "InlineCode"],
+ ", ",
+ StyleBox["F4", "InlineCode"],
+ " and ",
+ StyleBox["G2", "InlineCode"],
+ " for the exceptional algebras. The precise classical algebra is determined \
+by the length of the Dynkin label."
+}], "Text",
+ CellChangeTimes->{3.947678109782255*^9},
+ CellID->217082723,ExpressionUUID->"3600b0ff-3c54-ae47-a4a0-58454b220e3a"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Entering the ",
+ Cell[BoxData[
+  StyleBox[
+   OverscriptBox["10", "_"],
+   FontWeight->"Bold"]], "InlineFormula",ExpressionUUID->
+  "aecd48b3-d894-8348-ac35-50a274a8d483"],
+ " of SU(5) by its Dynkin label and algebra class:"
+}], "MathCaption",
+ CellChangeTimes->{3.947678161386198*^9},
+ CellID->165425912,ExpressionUUID->"d2f0a35d-20a9-ed47-a8a3-5a562acb1429"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Irrep", "[", "A", "]"}], "[", 
+   RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "]"}], "//", 
+  "FullForm"}]], "Input",
+ CellChangeTimes->{3.9476781695302105`*^9},
+ CellLabel->"In[2]:=",
+ CellID->721149576,ExpressionUUID->"dad714e8-9b87-a74a-a94b-b092e502d200"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   StyleBox[
+    RowBox[{
+     RowBox[{"Irrep", "[", "A", "]"}], "[", 
+     RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "]"}],
+    ShowSpecialCharacters->False,
+    ShowStringCharacters->True,
+    NumberMarks->True],
+   FullForm], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257032933216`*^9, 3.9478266771241417`*^9},
+ CellLabel->"Out[2]//FullForm=",
+ CellID->293421730,ExpressionUUID->"2851cd9b-3817-a84d-8c8a-294eda397326"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "In ",
+ ButtonBox["StandardForm",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/StandardForm"],
+ " the irrep is displayed in the textbook notation of Dynkin labels:"
+}], "MathCaption",
+ CellChangeTimes->{{3.9476782470181313`*^9, 3.947678250130764*^9}},
+ CellID->366430496,ExpressionUUID->"9cf8b6de-930b-ca40-b7e5-7468610e0b84"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Irrep", "[", "A", "]"}], "[", 
+   RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "]"}], "//", 
+  "StandardForm"}]], "Input",
+ CellChangeTimes->{3.9476782576463737`*^9},
+ CellLabel->"In[3]:=",
+ CellID->60840460,ExpressionUUID->"3c86acc2-d1e8-0f45-b95f-6b0219b278a6"],
+
+Cell[BoxData["\<\"(0010)\"\>"], "Output",
+ CellChangeTimes->{3.947825703362335*^9, 3.947826677182596*^9},
+ CellLabel->"Out[3]//StandardForm=",
+ CellID->249111310,ExpressionUUID->"0f1df0fb-b1c7-1144-9068-f5cb4ad2afbf"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "In ",
+ ButtonBox["TraditionalForm",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/TraditionalForm"],
+ " (default) the irrep is displayed by its dimensional name:"
+}], "MathCaption",
+ CellChangeTimes->{{3.947678274909939*^9, 3.947678279929779*^9}},
+ CellID->226640869,ExpressionUUID->"316b4a32-dfc5-964d-8b89-f5b32380f5c5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Irrep", "[", "A", "]"}], "[", 
+  RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "]"}]], "Input",
+ CellChangeTimes->{3.9476782849468803`*^9},
+ CellLabel->"In[4]:=",
+ CellID->105238268,ExpressionUUID->"e7bd0bd2-626f-3447-a206-63de1c96ef3b"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox[
+   OverscriptBox["10", "_"],
+   FontWeight->Bold], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825703462593*^9, 3.9478266772732143`*^9},
+ CellLabel->"Out[4]=",
+ CellID->101541287,ExpressionUUID->"6efde0b0-7358-d44c-a55d-677ba8502ebb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "The default output format type of LieART is ",
+ ButtonBox["TraditionalForm",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/TraditionalForm"],
+ ". The associated user setting is overwritten for the front-end session \
+LieART that is loaded in. For ",
+ ButtonBox["StandardForm",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/StandardForm"],
+ " as default output format type evaluate: ",
+ StyleBox["CurrentValue[$FrontEndSession,{CommonDefaultFormatTypes,\"Output\"}\
+]=StandardForm", "InlineCode"]
+}], "Text",
+ CellChangeTimes->{{3.9476783000066147`*^9, 3.9476783109998417`*^9}},
+ CellID->45777616,ExpressionUUID->"7eadf0b2-1f19-6849-9166-ed3dd9b80ad6"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "As an example for entering an irrep of an exceptional algebra, consider the \
+",
+ Cell[BoxData[
+  StyleBox["27",
+   FontWeight->"Bold"]], "InlineFormula",ExpressionUUID->
+  "2e55cda0-f941-b942-bc1d-84e94f4bfe83"],
+ " of ",
+ Cell[BoxData[
+  SubscriptBox["E", "6"]], "InlineFormula",ExpressionUUID->
+  "f67bf473-e0d3-c54b-90ff-506b5aeacb2e"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{3.9476783984655876`*^9},
+ CellID->1035227,ExpressionUUID->"8e301831-e28e-7542-a022-cd1ab1113526"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Irrep", "[", "E6", "]"}], "[", 
+  RowBox[{"1", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.947678406951969*^9},
+ CellLabel->"In[5]:=",
+ CellID->163948439,ExpressionUUID->"951d767e-32eb-e04a-9b8a-3e63afde5683"],
+
+Cell[BoxData[
+ FormBox[
+  StyleBox["27",
+   FontWeight->Bold], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825703647505*^9, 3.947826677489376*^9},
+ CellLabel->"Out[5]=",
+ CellID->544489479,ExpressionUUID->"b83ae115-ae00-444f-b3ee-d145f998b06c"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["\<\
+Irreps may also be entered by their dimensional name. The package transforms \
+the irrep into its Dynkin label. Since the algebra of an irrep of a classical \
+Lie algebra becomes ambiguous with only the dimensional name, it has to be \
+specified.\
+\>", "Text",
+ CellChangeTimes->{3.9476784205750427`*^9},
+ CellID->510607817,ExpressionUUID->"66afb50d-6433-424b-89a0-f550d5a0ca85"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     RowBox[{
+      ButtonBox["Irrep",
+       BaseStyle->"Link",
+       ButtonData->"paclet:LieART/ref/Irrep"], "[", 
+      StyleBox["algebra", "TI"], "]"}], "[", 
+     StyleBox["dimname", "TI"], "]"}], Cell[TextData[{
+     "irrep entered by its ",
+     Cell[BoxData[
+      StyleBox["algebra", "TI"]], "InlineFormula",ExpressionUUID->
+      "13953141-7320-304c-a768-024320333a58"],
+     " and dimensional name ",
+     Cell[BoxData[
+      StyleBox["dimname", "TI"]], "InlineFormula",ExpressionUUID->
+      "5632622e-9a26-9647-808f-a7a24b8628c8"],
+     "."
+    }], "TableText",ExpressionUUID->"59e17a5d-77a5-9f48-9c36-2a44de72044c"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.9476784401953754`*^9, 3.947678518071556*^9}},
+ CellID->441739002,ExpressionUUID->"28b855b2-eb4a-334f-9842-0b225336fbfa"],
+
+Cell["Entering irreps by dimensional name.", "Caption",
+ CellChangeTimes->{3.947776385771122*^9},
+ CellID->759657073,ExpressionUUID->"a90baf9f-553c-6748-a03c-db55f092e756"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Entering the ",
+ Cell[BoxData[
+  OverscriptBox["10", "_"]], "InlineFormula",
+  FontWeight->"Bold",ExpressionUUID->"3d689dd2-5d55-f64c-b968-4782c931b048"],
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ "of SU(5) by its dimensional name specifying the algebra by its Dynkin \
+classification ",
+ Cell[BoxData[
+  SubscriptBox["A", "4"]], "InlineFormula",ExpressionUUID->
+  "36603738-2c40-d041-980e-62a0787cb2ca"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{3.947776401580841*^9},
+ CellID->158726075,ExpressionUUID->"4cae0f45-0a2f-0c47-9e53-e4c0b0e25a7a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Irrep", "[", "A4", "]"}], "[", 
+   RowBox[{"Bar", "[", "10", "]"}], "]"}], "//", "InputForm"}]], "Input",
+ CellChangeTimes->{3.9477764081777782`*^9},
+ CellLabel->"In[6]:=",
+ CellID->40228388,ExpressionUUID->"ff69efa6-cf6e-e44c-a891-5fcf39f4d591"],
+
+Cell["Irrep[A][0, 0, 1, 0]", "Output",
+ CellChangeTimes->{3.947825703700878*^9, 3.9478266775518723`*^9},
+ CellLabel->"Out[6]//InputForm=",
+ CellID->174541013,ExpressionUUID->"41e6fc33-3ce5-9f44-b6f5-561c267f4896"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The traditional name of the algebra SU(5) may also be used:", \
+"MathCaption",
+ CellChangeTimes->{3.9477764242462654`*^9},
+ CellID->462455659,ExpressionUUID->"ec3d3f81-1bad-cc44-a5dc-5a2785bb9726"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Irrep", "[", "SU5", "]"}], "[", 
+   RowBox[{"Bar", "[", "10", "]"}], "]"}], "//", "InputForm"}]], "Input",
+ CellChangeTimes->{3.9477764300970745`*^9},
+ CellLabel->"In[7]:=",
+ CellID->871077786,ExpressionUUID->"f32ce481-ffff-e141-a226-df2f201fd1a8"],
+
+Cell["Irrep[A][0, 0, 1, 0]", "Output",
+ CellChangeTimes->{3.947825703747761*^9, 3.9478266777523975`*^9},
+ CellLabel->"Out[7]//InputForm=",
+ CellID->193968026,ExpressionUUID->"644e1d22-38fc-c44b-b429-4a2ca5148e58"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[TextData[{
+ "Irreps of product algebras like SU(3)\[CircleTimes]SU(2)\[CircleTimes]U(1) \
+are specified by ",
+ ButtonBox["ProductIrrep",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/ProductIrrep"],
+ " with the individual irreps of simple Lie algebras as arguments."
+}], "Text",
+ CellChangeTimes->{{3.9477764505507107`*^9, 3.9477764570266247`*^9}},
+ CellID->319292152,ExpressionUUID->"59183267-4bc2-f24c-9f79-a0967377926a"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["ProductIrrep",
+      BaseStyle->"Link",
+      ButtonData->"paclet:LieART/ref/ProductIrrep"], "[", 
+     StyleBox["irreps", "TI"], "]"}], Cell[TextData[{
+     "head of product ",
+     Cell[BoxData[
+      StyleBox["irreps", "TI"]], "InlineFormula",ExpressionUUID->
+      "2d318f44-c22e-ce44-a9f9-134434518bc6"],
+     ", gathering irreps of simple Lie algebras."
+    }], "TableText",ExpressionUUID->"815722e2-2f8c-6042-9bd0-0f75d9244a33"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.947776477944401*^9, 3.9477765192586613`*^9}},
+ CellID->72587750,ExpressionUUID->"bf4e0dbd-b104-2940-9493-249b69460e8a"],
+
+Cell["Product irreps.", "Caption",
+ CellChangeTimes->{3.947776527206272*^9},
+ CellID->807679636,ExpressionUUID->"c4f97b0c-9419-8543-9523-8f90830b43b9"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The product irrep ",
+ Cell[BoxData[
+  RowBox[{"(", 
+   StyleBox[
+    RowBox[{"3", ",", 
+     OverscriptBox["3", "_"]}],
+    FontWeight->"Bold"], ")"}]], "InlineFormula",ExpressionUUID->
+  "52d95c09-e68c-594e-be69-4d46e650759e"],
+ " of SU(3)\[CircleTimes]SU(3):"
+}], "MathCaption",
+ CellChangeTimes->{3.947776548572876*^9},
+ CellID->82931784,ExpressionUUID->"cd5b22f7-31f0-b44c-8483-44b889b53d3a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ProductIrrep", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", 
+    RowBox[{"Bar", "[", "3", "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477765605589447`*^9},
+ CellLabel->"In[8]:=",
+ CellID->430416066,ExpressionUUID->"fa26a096-b3db-7949-8d18-ed33f6919237"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", 
+   FormBox[
+    StyleBox["3",
+     FontWeight->Bold],
+    TraditionalForm], ",", 
+   FormBox[
+    StyleBox[
+     OverscriptBox["3", "_"],
+     FontWeight->Bold],
+    TraditionalForm], ")"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257038167706`*^9, 3.94782667787479*^9},
+ CellLabel->"Out[8]=",
+ CellID->59157557,ExpressionUUID->"a00698f2-e208-6a4f-b288-ebd7325c438f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "InputForm"}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->17271784,ExpressionUUID->"bbc90046-d454-1e49-83c8-76e2062c85f8"],
+
+Cell["ProductIrrep[Irrep[A][1, 0], Irrep[A][0, 1]]", "Output",
+ CellChangeTimes->{3.9478257038636456`*^9, 3.947826677937296*^9},
+ CellLabel->"Out[9]//InputForm=",
+ CellID->145171493,ExpressionUUID->"40d1b77a-c082-d948-a706-ea73e64e752c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ProductIrrep", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "A", "]"}], "[", 
+    RowBox[{"1", ",", " ", "0"}], "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "A", "]"}], "[", 
+    RowBox[{"0", ",", " ", "1"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.947776573387577*^9, 3.9477765733985767`*^9}},
+ CellLabel->"In[10]:=",
+ CellID->68401936,ExpressionUUID->"01e06d38-e5c0-8e47-a9bd-0a9ccafc7580"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", 
+   FormBox[
+    StyleBox["3",
+     FontWeight->Bold],
+    TraditionalForm], ",", 
+   FormBox[
+    StyleBox[
+     OverscriptBox["3", "_"],
+     FontWeight->Bold],
+    TraditionalForm], ")"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825703917036*^9, 3.9478266780219345`*^9},
+ CellLabel->"Out[10]=",
+ CellID->9403612,ExpressionUUID->"c95817e9-eaef-ae48-9065-8de0f1a5ae4d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Take for example the left-handed quark doublet in the Standard-Model gauge \
+group SU(3)\[CircleTimes]SU(2)\[CircleTimes]U(1) (The U(1) charge is not \
+typeset in bold face):\
+\>", "MathCaption",
+ CellChangeTimes->{3.94777659314542*^9},
+ CellID->359486283,ExpressionUUID->"2dac23cc-b793-7540-83a3-36f16c38f2dd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ProductIrrep", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU2", "]"}], "[", "2", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "U1", "]"}], "[", 
+    RowBox[{"1", "/", "3"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477765995866375`*^9},
+ CellLabel->"In[11]:=",
+ CellID->594788744,ExpressionUUID->"800a91c6-9419-1145-b8bc-faf7e752bbbe"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"(", 
+   FormBox[
+    StyleBox["3",
+     FontWeight->Bold],
+    TraditionalForm], ",", 
+   FormBox[
+    StyleBox["2",
+     FontWeight->Bold],
+    TraditionalForm], ")", "\[InvisibleSpace]", 
+   FormBox["\<\"(1/3)\"\>",
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825703979559*^9, 3.947826678090948*^9},
+ CellLabel->"Out[11]=",
+ CellID->469479930,ExpressionUUID->"52ffa489-52b1-6d40-82a5-676d530c5990"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "InputForm"}]], "Input",
+ CellLabel->"In[12]:=",
+ CellID->6335230,ExpressionUUID->"e0a9e6ca-2a66-8548-8c46-d072729e3f50"],
+
+Cell["ProductIrrep[Irrep[A][1, 0], Irrep[A][1], Irrep[U][1/3]]", "Output",
+ CellChangeTimes->{3.9478257040329247`*^9, 3.947826678175579*^9},
+ CellLabel->"Out[12]//InputForm=",
+ CellID->241580087,ExpressionUUID->"5452bfc0-b916-f447-b39f-593e30e97dbc"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Decomposing Tensor Products ", "Section",
+ CellChangeTimes->{3.947776620137619*^9},
+ CellID->523475589,ExpressionUUID->"f5c4f736-c428-144e-8dbe-359e61259d6a"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["DecomposeProduct",
+      BaseStyle->"Link",
+      ButtonData->"paclet:LieART/ref/DecomposeProduct"], "[", 
+     StyleBox["irreps", "TI"], "]"}], Cell[TextData[{
+     "decompose the tensor product of several ",
+     Cell[BoxData[
+      StyleBox["irreps", "TI"]], "InlineFormula",ExpressionUUID->
+      "1770f1b0-2254-7449-bcae-d95ca1b21244"],
+     "."
+    }], "TableText",ExpressionUUID->"d0b9f098-8f41-9343-b949-79c805f575aa"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.947776632404022*^9, 3.9477766556209087`*^9}, {
+   3.947777456649332*^9, 3.947777456649332*^9}, 3.947861766058367*^9},
+ CellID->253901027,ExpressionUUID->"6ea8b877-10c7-1446-87d3-d5ac052ee9a7"],
+
+Cell["Tensor product decomposition.", "Caption",
+ CellChangeTimes->{3.9477766624664993`*^9},
+ CellID->33459595,ExpressionUUID->"aadefb4e-3e82-7f4f-aae7-3d8b8d06c217"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the tensor product ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["3",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox[
+    OverscriptBox["3", "_"],
+    FontWeight->"Bold"]}]], "InlineFormula",ExpressionUUID->
+  "30f31fb0-c177-4146-bb50-a4606f444d8d"],
+ " of SU(3):"
+}], "MathCaption",
+ CellChangeTimes->{{3.9477766742635803`*^9, 3.94777668246743*^9}},
+ CellID->21578580,ExpressionUUID->"2968a76c-6945-4546-a99c-1117ec7d3e5a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeProduct", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", 
+    RowBox[{"Bar", "[", "3", "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.947776688761713*^9},
+ CellLabel->"In[13]:=",
+ CellID->282252990,ExpressionUUID->"b098376c-7387-a84a-b608-17fa87b996fc"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FormBox[
+    StyleBox["1",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox["8",
+     FontWeight->Bold],
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825704095421*^9, 3.94782667825371*^9},
+ CellLabel->"Out[13]=",
+ CellID->439123554,ExpressionUUID->"ceb9c788-15aa-d64d-accc-8eca4bee4092"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the tensor product ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["27",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox[
+    OverscriptBox["27", "_"],
+    FontWeight->"Bold"]}]], "InlineFormula",ExpressionUUID->
+  "b24d3487-aada-ab4f-b597-0bac334b7091"],
+ " of ",
+ Cell[BoxData[
+  SubscriptBox["E", "6"]], "InlineFormula",ExpressionUUID->
+  "701f8013-206d-b749-bc60-26bea7799746"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{3.9477766974143353`*^9},
+ CellID->69600949,ExpressionUUID->"a29d7fd7-e6be-e646-85b8-aca581d12aa5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeProduct", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "E6", "]"}], "[", "27", "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "E6", "]"}], "[", 
+    RowBox[{"Bar", "[", "27", "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477767028583927`*^9},
+ CellLabel->"In[14]:=",
+ CellID->443845553,ExpressionUUID->"9c59e8cc-de95-1a4a-85c6-a0ab78355cd6"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FormBox[
+    StyleBox["1",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox["78",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox["650",
+     FontWeight->Bold],
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825704180092*^9, 3.947826678376108*^9},
+ CellLabel->"Out[14]=",
+ CellID->8672960,ExpressionUUID->"dc590a0b-2397-f146-bac6-06bcf6dec4a3"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the tensor product ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["3",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["3",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["3",
+    FontWeight->"Bold"]}]], "InlineFormula",ExpressionUUID->
+  "4617de47-327c-2841-80a5-ab526eba9daf"],
+ " of SU(3):"
+}], "MathCaption",
+ CellChangeTimes->{3.9477767129631977`*^9},
+ CellID->42391797,ExpressionUUID->"08c9ace3-6a27-594f-ba8a-9a38eab6262b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeProduct", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477767191380615`*^9},
+ CellLabel->"In[15]:=",
+ CellID->231112781,ExpressionUUID->"a92b093c-8ce9-d148-84e2-3d85696e0c51"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FormBox[
+    StyleBox["1",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox["10",
+     FontWeight->Bold],
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257042334843`*^9, 3.9478266784763737`*^9},
+ CellLabel->"Out[15]=",
+ CellID->461755360,ExpressionUUID->"3d985f61-4f62-3a4b-ac66-e3c51554d4b4"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Decompose the tensor product 8\[CircleTimes]8 of SU(3):", "MathCaption",
+ CellChangeTimes->{3.947776729466017*^9},
+ CellID->87220652,ExpressionUUID->"02cd4e80-637d-a840-80de-a49db30981a1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeProduct", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "8", "]"}], ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "8", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477767346709805`*^9},
+ CellLabel->"In[16]:=",
+ CellID->9091409,ExpressionUUID->"9251ee01-f48e-1c43-91af-2371c53f2b10"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FormBox[
+    StyleBox["1",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox["10",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox[
+     OverscriptBox["10", "_"],
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox["27",
+     FontWeight->Bold],
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257042959824`*^9, 3.9478266785545006`*^9},
+ CellLabel->"Out[16]=",
+ CellID->602471971,ExpressionUUID->"522ea7d8-542f-384b-9cfd-154c7c67d1b6"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Internally a sum of irreps is represented by ",
+ ButtonBox["IrrepPlus",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/IrrepPlus"],
+ " and IrrepTimes, an analog of the built-in functions ",
+ ButtonBox["Plus",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Plus"],
+ " and ",
+ ButtonBox["Times",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Times"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.947776748864437*^9, 3.947776764596279*^9}},
+ CellID->237800370,ExpressionUUID->"f64b1106-1594-c047-9faa-3b7cf3ab462f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%", "//", "InputForm"}]], "Input",
+ CellChangeTimes->{3.947776771488598*^9},
+ CellLabel->"In[17]:=",
+ CellID->385310052,ExpressionUUID->"9ec89fe8-3697-134b-ba64-27a3db73d8e3"],
+
+Cell["\<\
+IrrepPlus[Irrep[A][0, 0], IrrepTimes[2, Irrep[A][1, 1]], Irrep[A][3, 0], \
+Irrep[A][0, 3], Irrep[A][2, 2]]\
+\>", "Output",
+ CellChangeTimes->{3.9478257043493843`*^9, 3.947826678639141*^9},
+ CellLabel->"Out[17]//InputForm=",
+ CellID->490843139,ExpressionUUID->"412e1d77-039d-8940-b32c-87fe4e930938"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The multiplicity of irreps in the sum can be extracted with ",
+ ButtonBox["IrrepMultiplicity",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/IrrepMultiplicity"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{
+  3.9477767881340847`*^9, {3.9477768327051907`*^9, 3.947776835133156*^9}},
+ CellID->290015337,ExpressionUUID->"073b2583-4769-0f4e-8e9c-c1b93f3093d6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"IrrepMultiplicity", "[", 
+  RowBox[{"%", ",", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU3", "]"}], "[", "8", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477768415262585`*^9},
+ CellLabel->"In[18]:=",
+ CellID->100522143,ExpressionUUID->"05060194-2ec1-df4b-8555-b230e4d9498c"],
+
+Cell[BoxData[
+ FormBox["2", TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825704402754*^9, 3.9478266787394066`*^9},
+ CellLabel->"Out[18]=",
+ CellID->92103503,ExpressionUUID->"aa9aa62c-c856-ed4d-a087-87ff38b6c6d1"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Results can be transformed into a list of irreps with ",
+ ButtonBox["IrrepList",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/IrrepList"],
+ ", suitable for further processing with Mathematica built-in functions like ",
+ ButtonBox["Select",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Select"],
+ " or ",
+ ButtonBox["Cases",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Cases"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.947776851705988*^9, 3.947776867795185*^9}},
+ CellID->356279398,ExpressionUUID->"7d869437-065f-dc4c-af4d-99d05b056cce"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"%%", "//", "IrrepList"}]], "Input",
+ CellChangeTimes->{3.947776877476967*^9},
+ CellLabel->"In[19]:=",
+ CellID->794698630,ExpressionUUID->"76534462-73e6-164f-b594-ed95fef1c08d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["10",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["10", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["27",
+      FontWeight->Bold],
+     TraditionalForm]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257044496326`*^9, 3.94782667880842*^9},
+ CellLabel->"Out[19]=",
+ CellID->429947858,ExpressionUUID->"941ba7d7-82f4-114d-b49f-e3d3927f4c04"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the tensor product ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["4",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["4",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["6",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["15",
+    FontWeight->"Bold"]}]], "InlineFormula",ExpressionUUID->
+  "7eb8baaf-ce8d-cb4a-8c7f-bc2089289bd3"],
+ " of SU(4):"
+}], "MathCaption",
+ CellChangeTimes->{3.947776885890909*^9},
+ CellID->58998029,ExpressionUUID->"917af4b9-6b07-ee40-bef8-f94002e3e156"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeProduct", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU4", "]"}], "[", "4", "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU4", "]"}], "[", "4", "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU4", "]"}], "[", "6", "]"}], ",", " ", 
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU4", "]"}], "[", "15", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477768911434803`*^9},
+ CellLabel->"In[20]:=",
+ CellID->241482759,ExpressionUUID->"951a7748-67c9-ff4e-ac69-90a8a9b4203b"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"7", "(", 
+    FormBox[
+     StyleBox["15",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"4", "(", 
+    FormBox[
+     SuperscriptBox[
+      StyleBox["20",
+       FontWeight->Bold], "\[Prime]"],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox["35",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   RowBox[{"5", "(", 
+    FormBox[
+     StyleBox["45",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"3", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["45", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"3", "(", 
+    FormBox[
+     StyleBox["84",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox["175",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox["256",
+     FontWeight->Bold],
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257045498924`*^9, 3.9478266789555626`*^9},
+ CellLabel->"Out[20]=",
+ CellID->434497827,ExpressionUUID->"5eb01aa1-be7d-ef4b-bc2e-a51e7fe29bc6"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The Mathematica built-in command ",
+ ButtonBox["Times",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Times"],
+ " for products is replaced by ",
+ ButtonBox["DecomposeProduct",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/DecomposeProduct"],
+ " for irreps as arguments. E.g., decompose the tensor product ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox[
+    OverscriptBox["10", "_"],
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["24",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["45",
+    FontWeight->"Bold"]}]], "InlineFormula",ExpressionUUID->
+  "b91742dc-f00b-0947-b4ec-ab2b1c6b7b7e"],
+ " of SU(5):"
+}], "MathCaption",
+ CellChangeTimes->{{3.947776901363884*^9, 3.9477769833869457`*^9}},
+ CellID->398521,ExpressionUUID->"7d24b56b-e35f-ad4b-9219-236eed201d18"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Irrep", "[", "SU5", "]"}], "[", 
+   RowBox[{"Bar", "[", "10", "]"}], "]"}], "*", 
+  RowBox[{
+   RowBox[{"Irrep", "[", "SU5", "]"}], "[", "24", "]"}], "*", 
+  RowBox[{
+   RowBox[{"Irrep", "[", "SU5", "]"}], "[", "45", "]"}]}]], "Input",
+ CellChangeTimes->{3.9477769907773495`*^9},
+ CellLabel->"In[21]:=",
+ CellID->128177717,ExpressionUUID->"760a0332-6e88-824f-a5d1-67172649a6da"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"3", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["5", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"6", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["45", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"3", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["50", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"5", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["70", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["105", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    SuperscriptBox[
+     StyleBox[
+      OverscriptBox["175", "_"],
+      FontWeight->Bold], "\[Prime]\[Prime]"],
+    TraditionalForm], "+", 
+   RowBox[{"6", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["280", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     SuperscriptBox[
+      StyleBox[
+       OverscriptBox["280", "_"],
+       FontWeight->Bold], "\[Prime]"],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox[
+     OverscriptBox["420", "_"],
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    SuperscriptBox[
+     StyleBox[
+      OverscriptBox["450", "_"],
+      FontWeight->Bold], "\[Prime]"],
+    TraditionalForm], "+", 
+   RowBox[{"3", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["480", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["720", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox[
+     OverscriptBox["1120", "_"],
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox[
+     OverscriptBox["2520", "_"],
+     FontWeight->Bold],
+    TraditionalForm]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825704697027*^9, 3.9478266791404686`*^9},
+ CellLabel->"Out[21]=",
+ CellID->247229367,ExpressionUUID->"46641496-018b-bc40-9dd1-fdd00aa188cb"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "For powers of irreps the Mathematica built-in command ",
+ ButtonBox["Power",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Power"],
+ " may be used. E.g., decompose the tensor product ",
+ Cell[BoxData[
+  RowBox[{
+   StyleBox["27",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["27",
+    FontWeight->"Bold"], "\[CircleTimes]", 
+   StyleBox["27",
+    FontWeight->"Bold"]}]], "InlineFormula",ExpressionUUID->
+  "a2ba905d-217b-5643-9a9a-3df299c9a673"],
+ " of ",
+ Cell[BoxData[
+  SubscriptBox["E", "6"]], "InlineFormula",ExpressionUUID->
+  "41b9fb37-cdab-b941-a142-bc822ed9d6a5"],
+ ":"
+}], "MathCaption",
+ CellChangeTimes->{{3.947777005012888*^9, 3.9477770235189953`*^9}},
+ CellID->907546154,ExpressionUUID->"97b03ce0-bba2-a247-8080-a44a5bd0c3ac"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Irrep", "[", "E6", "]"}], "[", "27", "]"}], "^", "3"}]], "Input",
+ CellChangeTimes->{3.9477770302039585`*^9},
+ CellLabel->"In[22]:=",
+ CellID->671510890,ExpressionUUID->"97245512-dbd1-5045-9b95-2efbc0275b9b"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   FormBox[
+    StyleBox["1",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox["78",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"3", "(", 
+    FormBox[
+     StyleBox["650",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   FormBox[
+    StyleBox["2925",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   FormBox[
+    StyleBox["3003",
+     FontWeight->Bold],
+    TraditionalForm], "+", 
+   RowBox[{"2", "(", 
+    FormBox[
+     StyleBox["5824",
+      FontWeight->Bold],
+     TraditionalForm], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825705721792*^9, 3.947826680106537*^9},
+ CellLabel->"Out[22]=",
+ CellID->10478433,ExpressionUUID->"c160503b-da1d-ce4f-89b5-f42ea3365b5b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose tensor products of product irreps",
+ Cell[BoxData[
+  RowBox[{" ", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      StyleBox["3",
+       FontWeight->"Bold"], ",", 
+      StyleBox[
+       OverscriptBox["3", "_"],
+       FontWeight->"Bold"], 
+      StyleBox[",",
+       FontWeight->"Bold"], 
+      StyleBox["1",
+       FontWeight->"Bold"]}], ")"}], "\[CircleTimes]", 
+    RowBox[{"(", 
+     RowBox[{
+      StyleBox[
+       OverscriptBox["3", "_"],
+       FontWeight->"Bold"], ",", 
+      StyleBox["3",
+       FontWeight->"Bold"], ",", 
+      StyleBox["1",
+       FontWeight->"Bold"]}], ")"}]}]}]], "InlineFormula",ExpressionUUID->
+  "c403cb0e-c9ce-e244-bbf6-45d8e04b9e13"],
+ " of SU(3)\[CircleTimes]SU(3)\[CircleTimes]SU(3):"
+}], "MathCaption",
+ CellChangeTimes->{3.9477770384206295`*^9},
+ CellID->11612982,ExpressionUUID->"c96a64fe-f108-aa40-9117-751860a78eec"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeProduct", "[", 
+  RowBox[{
+   RowBox[{"ProductIrrep", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", 
+      RowBox[{"Bar", "[", "3", "]"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", "1", "]"}]}], "]"}], ",", 
+   RowBox[{"ProductIrrep", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", 
+      RowBox[{"Bar", "[", "3", "]"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", "1", "]"}]}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.9477770488573*^9},
+ CellLabel->"In[23]:=",
+ CellID->202237577,ExpressionUUID->"12a4861e-9a64-fe49-a61d-b29361fa4603"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["8",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257058064213`*^9, 3.947826680165388*^9},
+ CellLabel->"Out[23]=",
+ CellID->197975957,ExpressionUUID->"ddb4dbda-bb5a-b544-9db6-71608985452f"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Decomposition to Subalgebras", "Section",
+ CellChangeTimes->{3.947777062805559*^9},
+ CellID->578734514,ExpressionUUID->"9f05c662-86da-cc4d-9486-2a0be313cbc7"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["DecomposeIrrep",
+      BaseStyle->"Link",
+      ButtonData->"paclet:LieART/ref/DecomposeIrrep"], "[", 
+     RowBox[{
+      StyleBox["irrep", "TI"], ",", 
+      StyleBox["subalgebra", "TI"]}], "]"}], Cell[TextData[{
+     "decompose ",
+     Cell[BoxData[
+      StyleBox["irrep", "TI"]], "InlineFormula",ExpressionUUID->
+      "bda2b87d-806d-4a40-bb6c-500f2456b1e1"],
+     " to the specified ",
+     Cell[BoxData[
+      StyleBox["subalgebra", "TI"]], "InlineFormula",ExpressionUUID->
+      "7c6519d8-df41-fb47-8805-2fa3f9800f39"],
+     "."
+    }], "TableText",ExpressionUUID->"c9fc1a2b-6e1c-944c-b3ca-bf1020be282c"]},
+   {
+    RowBox[{
+     ButtonBox["DecomposeIrrep",
+      BaseStyle->"Link",
+      ButtonData->"paclet:LieART/ref/DecomposeIrrep"], "[", 
+     StyleBox[
+      RowBox[{"pirrep", ",", "subalgebra", ",", "pos"}], "TI"], 
+     StyleBox["]", "TI"]}], Cell[TextData[{
+     "decompose the product irrep ",
+     Cell[BoxData[
+      StyleBox["pirrep", "TI"]], "InlineFormula",ExpressionUUID->
+      "686ebb0c-9ebc-eb40-b683-ad3ceca845c2"],
+     " at position ",
+     Cell[BoxData[
+      StyleBox["pos", "TI"]], "InlineFormula",ExpressionUUID->
+      "570296b5-8190-d048-8a68-d97722fc1b4b"],
+     "."
+    }], "TableText",ExpressionUUID->"6caa531a-c227-374c-a977-8578ddfdff94"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.9477770769950905`*^9, 3.9477771989802284`*^9}, {
+   3.9477774478833237`*^9, 3.9477774478833237`*^9}, 3.9477776329613132`*^9},
+ CellID->204161237,ExpressionUUID->"e36353e9-2c09-ac47-8f31-b8e8ab6da83d"],
+
+Cell["Decompose irreps and product irreps.", "Caption",
+ CellChangeTimes->{3.947777209703106*^9},
+ CellID->193631368,ExpressionUUID->"16a3095f-9c4d-684e-9057-b60627e375ec"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the ",
+ Cell[BoxData[
+  OverscriptBox["10", "_"]], "InlineFormula",
+  FontWeight->"Bold",ExpressionUUID->"2b4c1e7d-5cfc-5b42-883d-0bdd71a73401"],
+ " of SU(5) to SU(3)\[CircleTimes]SU(2)\[CircleTimes]U(1):"
+}], "MathCaption",
+ CellChangeTimes->{3.947777217585596*^9},
+ CellID->132766290,ExpressionUUID->"b91a81d8-492a-0b40-bc66-aa59c58a889a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeIrrep", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SU5", "]"}], "[", 
+    RowBox[{"Bar", "[", "10", "]"}], "]"}], ",", 
+   RowBox[{"ProductAlgebra", "[", 
+    RowBox[{"SU3", ",", "SU2", ",", "U1"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477772222879734`*^9},
+ CellLabel->"In[24]:=",
+ CellID->1034699787,ExpressionUUID->"4a64c806-8fc5-ef49-8822-3d1bc69012f5"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(6)\"\>",
+     TraditionalForm]}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["3",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(-4)\"\>",
+     TraditionalForm]}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["3", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["2",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(1)\"\>",
+     TraditionalForm]}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825705969187*^9, 3.947826680235998*^9},
+ CellLabel->"Out[24]=",
+ CellID->46919044,ExpressionUUID->"5a2e33b8-c0cd-cc4b-ba26-dd660ab9f95d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the ",
+ Cell[BoxData[
+  StyleBox["10",
+   FontWeight->"Bold"]], "InlineFormula",ExpressionUUID->
+  "4af7b1b3-e546-cd42-9c27-9744d28a34f1"],
+ " and the ",
+ Cell[BoxData[
+  StyleBox[
+   OverscriptBox["5", "_"],
+   FontWeight->"Bold"]], "InlineFormula",ExpressionUUID->
+  "195ec556-49eb-9d40-9c23-19d694e1c077"],
+ " of SU(5) to SU(3)\[CircleTimes]SU(2)\[CircleTimes]U(1) (",
+ ButtonBox["DecomposeIrrep",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/DecomposeIrrep"],
+ " is ",
+ ButtonBox["Listable",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/Listable"],
+ "):"
+}], "MathCaption",
+ CellChangeTimes->{{3.947777240130007*^9, 3.947777251669285*^9}},
+ CellID->387536926,ExpressionUUID->"9ce51931-dffe-194c-980b-f0d264c37d15"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeIrrep", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU5", "]"}], "[", "10", "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU5", "]"}], "[", 
+      RowBox[{"Bar", "[", "5", "]"}], "]"}]}], "}"}], ",", 
+   RowBox[{"ProductAlgebra", "[", 
+    RowBox[{"SU3", ",", "SU2", ",", "U1"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477772582138824`*^9},
+ CellLabel->"In[25]:=",
+ CellID->715640466,ExpressionUUID->"b0f10bb5-ac15-0a4e-b104-db2e40b15f82"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"(", 
+      FormBox[
+       StyleBox[
+        OverscriptBox["3", "_"],
+        FontWeight->Bold],
+       TraditionalForm], ",", 
+      FormBox[
+       StyleBox["1",
+        FontWeight->Bold],
+       TraditionalForm], ")", "\[InvisibleSpace]", 
+      FormBox["\<\"(4)\"\>",
+       TraditionalForm]}], "+", 
+     RowBox[{"(", 
+      FormBox[
+       StyleBox["3",
+        FontWeight->Bold],
+       TraditionalForm], ",", 
+      FormBox[
+       StyleBox["2",
+        FontWeight->Bold],
+       TraditionalForm], ")", "\[InvisibleSpace]", 
+      FormBox["\<\"(-1)\"\>",
+       TraditionalForm]}], "+", 
+     RowBox[{"(", 
+      FormBox[
+       StyleBox["1",
+        FontWeight->Bold],
+       TraditionalForm], ",", 
+      FormBox[
+       StyleBox["1",
+        FontWeight->Bold],
+       TraditionalForm], ")", "\[InvisibleSpace]", 
+      FormBox["\<\"(-6)\"\>",
+       TraditionalForm]}]}], ",", 
+    RowBox[{
+     RowBox[{"(", 
+      FormBox[
+       StyleBox[
+        OverscriptBox["3", "_"],
+        FontWeight->Bold],
+       TraditionalForm], ",", 
+      FormBox[
+       StyleBox["1",
+        FontWeight->Bold],
+       TraditionalForm], ")", "\[InvisibleSpace]", 
+      FormBox["\<\"(-2)\"\>",
+       TraditionalForm]}], "+", 
+     RowBox[{"(", 
+      FormBox[
+       StyleBox["1",
+        FontWeight->Bold],
+       TraditionalForm], ",", 
+      FormBox[
+       StyleBox["2",
+        FontWeight->Bold],
+       TraditionalForm], ")", "\[InvisibleSpace]", 
+      FormBox["\<\"(3)\"\>",
+       TraditionalForm]}]}]}], "}"}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257060382023`*^9, 3.947826680298506*^9},
+ CellLabel->"Out[25]=",
+ CellID->45304350,ExpressionUUID->"d1424f6a-5b70-2b48-933f-966767d552ca"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the ",
+ StyleBox["16",
+  FontWeight->"Bold"],
+ " of SO(10) to SU(5)\[CircleTimes]U(1):"
+}], "MathCaption",
+ CellChangeTimes->{3.9477772655435486`*^9},
+ CellID->106286932,ExpressionUUID->"45df7e09-d942-674d-88de-dc7244dbcff1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeIrrep", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "SO10", "]"}], "[", "16", "]"}], ",", 
+   RowBox[{"ProductAlgebra", "[", 
+    RowBox[{"SU5", ",", "U1"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477772713934937`*^9},
+ CellLabel->"In[26]:=",
+ CellID->593103057,ExpressionUUID->"a28e208d-8b94-0545-8105-becd51eb559a"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(-5)\"\>",
+     TraditionalForm]}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["5", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(3)\"\>",
+     TraditionalForm]}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["10",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(-1)\"\>",
+     TraditionalForm]}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257062074566`*^9, 3.9478266803831463`*^9},
+ CellLabel->"Out[26]=",
+ CellID->141447701,ExpressionUUID->"b64a7874-c640-9743-8424-4865957fe42f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the ",
+ StyleBox["27",
+  FontWeight->"Bold"],
+ " of ",
+ Cell[BoxData[
+  SubscriptBox["E", "6"]], "InlineFormula",ExpressionUUID->
+  "b01855e1-5ce0-9c40-a624-dbf26b69dbbd"],
+ " to SU(3)\[CircleTimes]SU(3)\[CircleTimes]SU(3):"
+}], "MathCaption",
+ CellChangeTimes->{3.947777278715969*^9},
+ CellID->3226142,ExpressionUUID->"a61f2946-0ee7-544d-afae-29f02ca1ffda"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeIrrep", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Irrep", "[", "E6", "]"}], "[", "27", "]"}], ",", 
+   RowBox[{"ProductAlgebra", "[", 
+    RowBox[{"SU3", ",", "SU3", ",", "SU3"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.947777286108673*^9},
+ CellLabel->"In[27]:=",
+ CellID->16008129,ExpressionUUID->"db1a8470-9e91-b84d-ab39-8bb9eb7412c3"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["3",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["3",
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["3",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["3", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ")"}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["3", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox[
+      OverscriptBox["3", "_"],
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")"}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.94782570630772*^9, 3.9478266804521637`*^9},
+ CellLabel->"Out[27]=",
+ CellID->38973786,ExpressionUUID->"49394760-985a-084d-9b11-503c232bc34a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Decompose the SU(3) irrep ",
+ StyleBox["3",
+  FontWeight->"Bold"],
+ " in (",
+ StyleBox["24",
+  FontWeight->"Bold"],
+ ",",
+ StyleBox["3",
+  FontWeight->"Bold"],
+ ")(-3) of SU(5)\[CircleTimes]SU(3)\[CircleTimes]U(1) to \
+SU(2)\[CircleTimes]U'(1), i.e., SU(5)\[CircleTimes]SU(3)\[CircleTimes]U(1)\
+\[Rule]SU(5)\[CircleTimes]SU(2)\[CircleTimes]U'(1)\[CircleTimes]U(1):"
+}], "MathCaption",
+ CellChangeTimes->{3.9477772939194794`*^9},
+ CellID->550900079,ExpressionUUID->"4765754d-3e42-074a-b40f-89438351a4be"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DecomposeIrrep", "[", 
+  RowBox[{
+   RowBox[{"ProductIrrep", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU5", "]"}], "[", "24", "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+     RowBox[{
+      RowBox[{"Irrep", "[", "U1", "]"}], "[", 
+      RowBox[{"-", "3"}], "]"}]}], "]"}], ",", 
+   RowBox[{"ProductAlgebra", "[", 
+    RowBox[{"SU2", ",", "U1"}], "]"}], ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{3.947777300539194*^9},
+ CellLabel->"In[28]:=",
+ CellID->321948372,ExpressionUUID->"44bc16d7-81d2-fc4d-b4c4-f33f24cac383"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["24",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["1",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(-2)\"\>",
+     TraditionalForm], "\[InvisibleSpace]", 
+    FormBox["\<\"(-3)\"\>",
+     TraditionalForm]}], "+", 
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["24",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["2",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(1)\"\>",
+     TraditionalForm], "\[InvisibleSpace]", 
+    FormBox["\<\"(-3)\"\>",
+     TraditionalForm]}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257064704857`*^9, 3.94782668051466*^9},
+ CellLabel->"Out[28]=",
+ CellID->116841785,ExpressionUUID->"224cd711-6b94-c14d-b737-a81e909b019f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The same decomposition as above displayed as branching rule:", \
+"MathCaption",
+ CellChangeTimes->{3.947777305341778*^9},
+ CellID->951813948,ExpressionUUID->"18d827e4-af30-7548-9999-7bbd47c3d0ed"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"IrrepRule", "[", 
+    RowBox[{"#", ",", 
+     RowBox[{"DecomposeIrrep", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"ProductAlgebra", "[", 
+        RowBox[{"SU2", ",", "U1"}], "]"}], ",", "2"}], "]"}]}], "]"}], "&"}], 
+  "@", 
+  RowBox[{"ProductIrrep", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Irrep", "[", "SU5", "]"}], "[", "24", "]"}], ",", 
+    RowBox[{
+     RowBox[{"Irrep", "[", "SU3", "]"}], "[", "3", "]"}], ",", 
+    RowBox[{
+     RowBox[{"Irrep", "[", "U1", "]"}], "[", 
+     RowBox[{"-", "3"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{3.947777311596079*^9},
+ CellLabel->"In[29]:=",
+ CellID->12671921,ExpressionUUID->"0100a72e-38f9-cc4e-9c7f-8768adc61e3d"],
+
+Cell[BoxData[
+ FormBox[
+  RowBox[{
+   RowBox[{"(", 
+    FormBox[
+     StyleBox["24",
+      FontWeight->Bold],
+     TraditionalForm], ",", 
+    FormBox[
+     StyleBox["3",
+      FontWeight->Bold],
+     TraditionalForm], ")", "\[InvisibleSpace]", 
+    FormBox["\<\"(-3)\"\>",
+     TraditionalForm]}], "\[RightArrow]", 
+   RowBox[{
+    RowBox[{"(", 
+     FormBox[
+      StyleBox["24",
+       FontWeight->Bold],
+      TraditionalForm], ",", 
+     FormBox[
+      StyleBox["1",
+       FontWeight->Bold],
+      TraditionalForm], ")", "\[InvisibleSpace]", 
+     FormBox["\<\"(-2)\"\>",
+      TraditionalForm], "\[InvisibleSpace]", 
+     FormBox["\<\"(-3)\"\>",
+      TraditionalForm]}], "+", 
+    RowBox[{"(", 
+     FormBox[
+      StyleBox["24",
+       FontWeight->Bold],
+      TraditionalForm], ",", 
+     FormBox[
+      StyleBox["2",
+       FontWeight->Bold],
+      TraditionalForm], ")", "\[InvisibleSpace]", 
+     FormBox["\<\"(1)\"\>",
+      TraditionalForm], "\[InvisibleSpace]", 
+     FormBox["\<\"(-3)\"\>",
+      TraditionalForm]}]}]}], TraditionalForm]], "Output",
+ CellChangeTimes->{3.947825706639765*^9, 3.9478266805836716`*^9},
+ CellLabel->"Out[29]=",
+ CellID->75726109,ExpressionUUID->"0011a4de-6f7f-9f4f-8318-795ee85cd998"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Branching rules for all totally antisymmetric irreps, so-called basic irreps, \
+of SU(6) to SU(3)\[CircleTimes]SU(3)\[CircleTimes]U(1):\
+\>", "MathCaption",
+ CellChangeTimes->{3.947777319708353*^9},
+ CellID->491305140,ExpressionUUID->"7f6159c0-d72b-3e42-9c20-cf59db9eeb71"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"IrrepRule", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"DecomposeIrrep", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"ProductAlgebra", "[", 
+         RowBox[{"SU3", ",", "SU3", ",", "U1"}], "]"}]}], "]"}]}], "]"}], 
+    "&"}], "/@", 
+   RowBox[{"BasicIrreps", "[", "SU6", "]"}]}], "//", "TableForm"}]], "Input",
+ CellChangeTimes->{3.947777325167721*^9},
+ CellLabel->"In[30]:=",
+ CellID->773897221,ExpressionUUID->"c27778c0-385a-524b-9a67-13f01b999b72"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[
+   TagBox[GridBox[{
+      {
+       RowBox[{
+        FormBox[
+         StyleBox["6",
+          FontWeight->Bold],
+         TraditionalForm], "\[RightArrow]", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(1)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(-1)\"\>",
+           TraditionalForm]}]}]}]},
+      {
+       RowBox[{
+        FormBox[
+         StyleBox["15",
+          FontWeight->Bold],
+         TraditionalForm], "\[RightArrow]", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(2)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(-2)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(0)\"\>",
+           TraditionalForm]}]}]}]},
+      {
+       RowBox[{
+        FormBox[
+         StyleBox["20",
+          FontWeight->Bold],
+         TraditionalForm], "\[RightArrow]", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(3)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(-3)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(-1)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(1)\"\>",
+           TraditionalForm]}]}]}]},
+      {
+       RowBox[{
+        FormBox[
+         StyleBox[
+          OverscriptBox["15", "_"],
+          FontWeight->Bold],
+         TraditionalForm], "\[RightArrow]", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(-2)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["3",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(2)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(0)\"\>",
+           TraditionalForm]}]}]}]},
+      {
+       RowBox[{
+        FormBox[
+         StyleBox[
+          OverscriptBox["6", "_"],
+          FontWeight->Bold],
+         TraditionalForm], "\[RightArrow]", 
+        RowBox[{
+         RowBox[{"(", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(-1)\"\>",
+           TraditionalForm]}], "+", 
+         RowBox[{"(", 
+          FormBox[
+           StyleBox["1",
+            FontWeight->Bold],
+           TraditionalForm], ",", 
+          FormBox[
+           StyleBox[
+            OverscriptBox["3", "_"],
+            FontWeight->Bold],
+           TraditionalForm], ")", "\[InvisibleSpace]", 
+          FormBox["\<\"(1)\"\>",
+           TraditionalForm]}]}]}]}
+     },
+     GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+     GridBoxSpacings->{"Columns" -> {
+         Offset[0.27999999999999997`], {
+          Offset[0.5599999999999999]}, 
+         Offset[0.27999999999999997`]}, "Rows" -> {
+         Offset[0.2], {
+          Offset[0.4]}, 
+         Offset[0.2]}}],
+    Column],
+   Function[BoxForm`e$, 
+    TableForm[BoxForm`e$]]], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257067400208`*^9, 3.94782668069956*^9},
+ CellLabel->"Out[30]//TableForm=",
+ CellID->138552271,ExpressionUUID->"82bd0ff7-db7d-cb42-a015-9358edb06571"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Young Tableaux", "Section",
+ CellChangeTimes->{3.9477773439503975`*^9},
+ CellID->567841620,ExpressionUUID->"0a60758f-65b5-1a44-b2ba-69cfaab992d4"],
+
+Cell[TextData[{
+ "The irreps of SU(N) have a correspondence to Young tableaux, which can be \
+displayed by ",
+ ButtonBox["YoungTableau",
+  BaseStyle->"Link",
+  ButtonData->"paclet:LieART/ref/YoungTableau"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.9477773528581066`*^9, 3.947777355858721*^9}},
+ CellID->108005628,ExpressionUUID->"2b780e85-9c8d-c74d-b116-94748db012b3"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     ButtonBox["YoungTableau",
+      BaseStyle->"Link",
+      ButtonData->"paclet:LieART/ref/YoungTableau"], "[", 
+     StyleBox["irrep", "TI"], "]"}], Cell[TextData[{
+     "display the Young tableau associated with ",
+     Cell[BoxData[
+      StyleBox["irrep", "TI"]], "InlineFormula",ExpressionUUID->
+      "36142b09-2e16-1448-ba04-9ad829c1363e"],
+     " "
+    }], "TableText",ExpressionUUID->"f686e941-5fbd-4e46-8e26-4ae395532a4c"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.9477773742124424`*^9, 3.9477773882931175`*^9}, {
+   3.9477774386663475`*^9, 3.947777441789995*^9}, {3.947777719710644*^9, 
+   3.94777772527384*^9}, 3.9478617744409695`*^9},
+ CellID->39852377,ExpressionUUID->"d66e103e-57b2-7148-95e1-13c8956b9055"],
+
+Cell["Young tableaux.", "Caption",
+ CellChangeTimes->{3.947777484697481*^9},
+ CellID->8925198,ExpressionUUID->"203533d8-4125-7f47-ab8b-90f61d592c26"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Young tableau of the ",
+ StyleBox["720",
+  FontWeight->"Bold"],
+ " of SU(5):"
+}], "MathCaption",
+ CellChangeTimes->{3.947777493732027*^9},
+ CellID->319863895,ExpressionUUID->"a58f9a4e-f620-fa4e-9fc1-5958e6bd82ce"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"YoungTableau", "[", 
+  RowBox[{
+   RowBox[{"Irrep", "[", "A", "]"}], "[", 
+   RowBox[{"1", ",", "2", ",", "0", ",", "1"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{3.947777498883196*^9},
+ CellLabel->"In[31]:=",
+ CellID->283448318,ExpressionUUID->"6baef93e-4a39-1b4b-8b03-7d9e1446e960"],
+
+Cell[BoxData[
+ FormBox[
+  TagBox[GridBox[{
+     {
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], 
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], 
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], 
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False]},
+     {
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], 
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], 
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], ""},
+     {
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], "", "", ""},
+     {
+      ItemBox[
+       TemplateBox[{10, 10},
+        "Spacer2"],
+       Frame->GrayLevel[0],
+       StripOnInput->False], "", "", ""}
+    },
+    AutoDelete->False,
+    GridBoxAlignment->{"Columns" -> {{Right}}},
+    GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+   "Grid"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257069718056`*^9, 3.9478266807685623`*^9},
+ CellLabel->"Out[31]=",
+ CellID->242533562,ExpressionUUID->"5e399805-7a58-c943-a684-71a8dd15620a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+Display Young tableaux of SU(4) irreps with a maximum of one column per box \
+count:\
+\>", "MathCaption",
+ CellChangeTimes->{3.947777507685623*^9},
+ CellID->86800659,ExpressionUUID->"4aa85b46-6da6-ba46-8265-0a3d062c8462"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Row", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Row", "[", 
+      RowBox[{"{", 
+       RowBox[{"#", ",", "\"\<: \>\"", ",", 
+        RowBox[{"YoungTableau", "[", "#", "]"}]}], "}"}], "]"}], "&"}], "/@", 
+    RowBox[{"SortBy", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Irrep", "[", "A", "]"}], "@@@", 
+       RowBox[{"Tuples", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "1"}], "}"}], ",", "3"}], "]"}]}], ",", "Dim"}], 
+     "]"}]}], ",", 
+   RowBox[{"Spacer", "[", "10", "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.9477775166033554`*^9},
+ CellLabel->"In[32]:=",
+ CellID->55951039,ExpressionUUID->"45826505-e2fa-0242-a381-3401974c02ca"],
+
+Cell[BoxData[
+ FormBox[
+  TemplateBox[{
+    TemplateBox[{10}, "Spacer1"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox["1", Bold], TraditionalForm], "\": \"", 
+      TemplateBox[{"\"\[FilledSmallCircle]\""}, "RowDefault"]}, "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox[
+        OverscriptBox["4", "_"], Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox["4", Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {""}, {""}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox["6", Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {""}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox["15", Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], ""}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], ""}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox["20", Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], ""}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox[
+        OverscriptBox["20", "_"], Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], ""}, {"", ""}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"], 
+    TemplateBox[{
+      FormBox[
+       StyleBox["64", Bold], TraditionalForm], "\": \"", 
+      TagBox[
+       GridBox[{{
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False]}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], 
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], ""}, {
+          ItemBox[
+           TemplateBox[{10, 10}, "Spacer2"], Frame -> GrayLevel[0], 
+           StripOnInput -> False], "", ""}}, 
+        GridBoxAlignment -> {"Columns" -> {{Right}}}, AutoDelete -> False, 
+        GridBoxItemSize -> {
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]}, 
+     "RowDefault"]},
+   "RowWithSeparator"], TraditionalForm]], "Output",
+ CellChangeTimes->{3.9478257071879654`*^9, 3.947826680837572*^9},
+ CellLabel->"Out[32]=",
+ CellID->396194228,ExpressionUUID->"e21ec435-47ee-cf44-a073-01ea0aebd80b"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Guides", "TutorialMoreAboutSection",
+ CellChangeTimes->{{3.843042384656711*^9, 3.843042386024461*^9}},
+ CellID->425208759,ExpressionUUID->"a79e6c6a-daa7-c343-8eb3-7eed2aae3591"],
+
+Cell[TextData[ButtonBox["LieART",
+ BaseStyle->"Link",
+ ButtonData->"paclet:LieART/guide/LieART"]], "TutorialMoreAbout",
+ CellChangeTimes->{{3.947825718144783*^9, 3.947825725914608*^9}},
+ CellID->228898572,ExpressionUUID->"1e0c5f1a-b724-3245-b905-aa7ef162daa9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Tech Notes", "RelatedTutorialsSection",
+ CellID->89118638,ExpressionUUID->"1093817b-f30d-3443-b2b1-fc8f17aacddc"],
+
+Cell["XXXX", "RelatedTutorials",
+ CellID->481208245,ExpressionUUID->"d2767cfb-69c9-9f46-836f-9d8f69d98220"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Metadata", "MetadataSection",
+ CellID->70054418,ExpressionUUID->"e4e9414c-a013-5841-bca5-ad4ac2829747"],
+
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New",ExpressionUUID->"e24a38db-57bf-d246-a9a4-3838f07865d9"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified",ExpressionUUID->"3c68b88e-7226-7540-9fa8-d4d8882ee7a5"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete",ExpressionUUID->"9c5c0aea-2b3d-6644-b29a-1c260968a0dc"]
+}], "History",
+ CellID->49111931,ExpressionUUID->"73ed6f17-1429-2140-bc58-a76829b66277"],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->64279907,ExpressionUUID->"b03e0564-662f-bd49-b3fe-d40159735ed2"],
+
+Cell["Tech Note", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->102524887,ExpressionUUID->"6895f35b-a0d5-2c46-984b-73777e966167"],
+
+Cell["LieART", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->88845281,ExpressionUUID->"36d2d643-6193-b04e-bc6a-27ee5d0cbb17"],
+
+Cell["", "Categorization",
+ CellLabel->"Context",
+ CellID->982067793,ExpressionUUID->"72e52800-60eb-504f-81d7-d1532315dc6c"],
+
+Cell["LieART/tutorial/QuickStartTutorial", "Categorization",
+ CellLabel->"URI",
+ CellID->690407564,ExpressionUUID->"7c589b4f-7017-4847-998e-006220472080"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->653217484,ExpressionUUID->"7e6eac1b-c5c2-3c43-91e2-ff7b589a9866"],
+
+Cell["XXXX", "Keywords",
+ CellID->512074469,ExpressionUUID->"9284731e-b3f1-bb4b-a36f-a258faf6d431"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1150.8, 1222.8},
+WindowMargins->{{
+  Automatic, 308.4000000000001}, {-303.5999999999999, Automatic}},
+TaggingRules-><|"Paclet" -> "LieART"|>,
+CommonDefaultFormatTypes->{"Output"->TraditionalForm},
+FrontEndVersion->"14.2 for Microsoft Windows (64-bit) (December 26, 2024)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TechNotePageStylesExt.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"a9cd936e-d28a-a64c-9ac7-17ddc5bdbbc0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 188, 2, 112, "Title",ExpressionUUID->"f7b9c116-73c0-b545-b062-0b9a3a441719",
+ CellID->80924673],
+Cell[767, 26, 327, 6, 42, "Text",ExpressionUUID->"3e91b973-f18c-0048-9f81-106e1568991c",
+ CellID->126958565],
+Cell[CellGroupData[{
+Cell[1119, 36, 162, 2, 39, "MathCaption",ExpressionUUID->"c0362201-a292-394c-8291-72c4f6b7cde4",
+ CellID->309422112],
+Cell[CellGroupData[{
+Cell[1306, 42, 190, 4, 25, "Input",ExpressionUUID->"7d56a06d-8525-384a-aafb-0fcd4bc903a1",
+ CellID->47492548],
+Cell[CellGroupData[{
+Cell[1521, 50, 261, 4, 19, "Print",ExpressionUUID->"557b77a9-7986-6a49-a69e-832d99d8dd55",
+ CellID->329786865],
+Cell[1785, 56, 277, 4, 19, "Print",ExpressionUUID->"04c37196-273d-2c47-8b70-f9c3da46eb48",
+ CellID->129822246]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2123, 67, 174, 2, 44, "Section",ExpressionUUID->"8f7b7733-4f3c-384e-b2a8-7e2a748994c0",
+ CellID->326602266],
+Cell[2300, 71, 236, 4, 42, "Text",ExpressionUUID->"c94dff8e-6b7f-8e44-a9ca-f6117b7d27b4",
+ CellID->370080729],
+Cell[2539, 77, 941, 23, 42, "DefinitionBox",ExpressionUUID->"6414128f-f258-5047-929e-65ba37c7fa1a",
+ CellID->241565687],
+Cell[3483, 102, 167, 2, 28, "Caption",ExpressionUUID->"1f971b12-5ce4-6f4d-9d3a-a30a42a8fc83",
+ CellID->72623812],
+Cell[3653, 106, 837, 27, 63, "Text",ExpressionUUID->"3600b0ff-3c54-ae47-a4a0-58454b220e3a",
+ CellID->217082723],
+Cell[CellGroupData[{
+Cell[4515, 137, 378, 10, 39, "MathCaption",ExpressionUUID->"d2f0a35d-20a9-ed47-a8a3-5a562acb1429",
+ CellID->165425912],
+Cell[CellGroupData[{
+Cell[4918, 151, 307, 8, 25, "Input",ExpressionUUID->"dad714e8-9b87-a74a-a94b-b092e502d200",
+ CellID->721149576],
+Cell[5228, 161, 470, 13, 23, "Output",ExpressionUUID->"2851cd9b-3817-a84d-8c8a-294eda397326",
+ CellID->293421730]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5747, 180, 345, 8, 39, "MathCaption",ExpressionUUID->"9cf8b6de-930b-ca40-b7e5-7468610e0b84",
+ CellID->366430496],
+Cell[CellGroupData[{
+Cell[6117, 192, 310, 8, 25, "Input",ExpressionUUID->"3c86acc2-d1e8-0f45-b95f-6b0219b278a6",
+ CellID->60840460],
+Cell[6430, 202, 217, 3, 24, "Output",ExpressionUUID->"0f1df0fb-b1c7-1144-9068-f5cb4ad2afbf",
+ CellID->249111310]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6696, 211, 341, 8, 39, "MathCaption",ExpressionUUID->"316b4a32-dfc5-964d-8b89-f5b32380f5c5",
+ CellID->226640869],
+Cell[CellGroupData[{
+Cell[7062, 223, 271, 6, 25, "Input",ExpressionUUID->"e7bd0bd2-626f-3447-a206-63de1c96ef3b",
+ CellID->105238268],
+Cell[7336, 231, 279, 7, 23, "Output",ExpressionUUID->"6efde0b0-7358-d44c-a55d-677ba8502ebb",
+ CellID->101541287]
+}, Open  ]]
+}, Open  ]],
+Cell[7642, 242, 671, 15, 82, "Text",ExpressionUUID->"7eadf0b2-1f19-6849-9166-ed3dd9b80ad6",
+ CellID->45777616],
+Cell[CellGroupData[{
+Cell[8338, 261, 499, 14, 39, "MathCaption",ExpressionUUID->"8e301831-e28e-7542-a022-cd1ab1113526",
+ CellID->1035227],
+Cell[CellGroupData[{
+Cell[8862, 279, 293, 7, 25, "Input",ExpressionUUID->"951d767e-32eb-e04a-9b8a-3e63afde5683",
+ CellID->163948439],
+Cell[9158, 288, 253, 6, 23, "Output",ExpressionUUID->"b83ae115-ae00-444f-b3ee-d145f998b06c",
+ CellID->544489479]
+}, Open  ]]
+}, Open  ]],
+Cell[9438, 298, 389, 7, 61, "Text",ExpressionUUID->"66afb50d-6433-424b-89a0-f550d5a0ca85",
+ CellID->510607817],
+Cell[9830, 307, 839, 21, 42, "DefinitionBox",ExpressionUUID->"28b855b2-eb4a-334f-9842-0b225336fbfa",
+ CellID->441739002],
+Cell[10672, 330, 172, 2, 28, "Caption",ExpressionUUID->"a90baf9f-553c-6748-a03c-db55f092e756",
+ CellID->759657073],
+Cell[CellGroupData[{
+Cell[10869, 336, 561, 15, 56, "MathCaption",ExpressionUUID->"4cae0f45-0a2f-0c47-9e53-e4c0b0e25a7a",
+ CellID->158726075],
+Cell[CellGroupData[{
+Cell[11455, 355, 293, 7, 25, "Input",ExpressionUUID->"ff69efa6-cf6e-e44c-a891-5fcf39f4d591",
+ CellID->40228388],
+Cell[11751, 364, 213, 3, 24, "Output",ExpressionUUID->"41e6fc33-3ce5-9f44-b6f5-561c267f4896",
+ CellID->174541013]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12013, 373, 203, 3, 39, "MathCaption",ExpressionUUID->"ec3d3f81-1bad-cc44-a5dc-5a2785bb9726",
+ CellID->462455659],
+Cell[CellGroupData[{
+Cell[12241, 380, 295, 7, 25, "Input",ExpressionUUID->"f32ce481-ffff-e141-a226-df2f201fd1a8",
+ CellID->871077786],
+Cell[12539, 389, 213, 3, 24, "Output",ExpressionUUID->"644e1d22-38fc-c44b-b429-4a2ca5148e58",
+ CellID->193968026]
+}, Open  ]]
+}, Open  ]],
+Cell[12779, 396, 436, 9, 42, "Text",ExpressionUUID->"59183267-4bc2-f24c-9f79-a0967377926a",
+ CellID->319292152],
+Cell[13218, 407, 659, 15, 42, "DefinitionBox",ExpressionUUID->"bf4e0dbd-b104-2940-9493-249b69460e8a",
+ CellID->72587750],
+Cell[13880, 424, 151, 2, 28, "Caption",ExpressionUUID->"c4f97b0c-9419-8543-9523-8f90830b43b9",
+ CellID->807679636],
+Cell[CellGroupData[{
+Cell[14056, 430, 414, 12, 39, "MathCaption",ExpressionUUID->"cd5b22f7-31f0-b44c-8483-44b889b53d3a",
+ CellID->82931784],
+Cell[CellGroupData[{
+Cell[14495, 446, 392, 10, 25, "Input",ExpressionUUID->"fa26a096-b3db-7949-8d18-ed33f6919237",
+ CellID->430416066],
+Cell[14890, 458, 421, 14, 23, "Output",ExpressionUUID->"a00698f2-e208-6a4f-b288-ebd7325c438f",
+ CellID->59157557]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15348, 477, 155, 3, 25, "Input",ExpressionUUID->"bbc90046-d454-1e49-83c8-76e2062c85f8",
+ CellID->17271784],
+Cell[15506, 482, 237, 3, 24, "Output",ExpressionUUID->"40d1b77a-c082-d948-a706-ea73e64e752c",
+ CellID->145171493]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15780, 490, 445, 11, 25, "Input",ExpressionUUID->"01e06d38-e5c0-8e47-a9bd-0a9ccafc7580",
+ CellID->68401936],
+Cell[16228, 503, 422, 14, 23, "Output",ExpressionUUID->"c95817e9-eaef-ae48-9065-8de0f1a5ae4d",
+ CellID->9403612]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16699, 523, 321, 6, 55, "MathCaption",ExpressionUUID->"2dac23cc-b793-7540-83a3-36f16c38f2dd",
+ CellID->359486283],
+Cell[CellGroupData[{
+Cell[17045, 533, 460, 12, 25, "Input",ExpressionUUID->"800a91c6-9419-1145-b8bc-faf7e752bbbe",
+ CellID->594788744],
+Cell[17508, 547, 468, 15, 23, "Output",ExpressionUUID->"52ffa489-52b1-6d40-82a5-676d530c5990",
+ CellID->469479930]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18013, 567, 155, 3, 25, "Input",ExpressionUUID->"e0a9e6ca-2a66-8548-8c46-d072729e3f50",
+ CellID->6335230],
+Cell[18171, 572, 250, 3, 24, "Output",ExpressionUUID->"5452bfc0-b916-f447-b39f-593e30e97dbc",
+ CellID->241580087]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18482, 582, 164, 2, 44, "Section",ExpressionUUID->"f5c4f736-c428-144e-8dbe-359e61259d6a",
+ CellID->523475589],
+Cell[18649, 586, 723, 16, 42, "DefinitionBox",ExpressionUUID->"6ea8b877-10c7-1446-87d3-d5ac052ee9a7",
+ CellID->253901027],
+Cell[19375, 604, 166, 2, 28, "Caption",ExpressionUUID->"aadefb4e-3e82-7f4f-aae7-3d8b8d06c217",
+ CellID->33459595],
+Cell[CellGroupData[{
+Cell[19566, 610, 456, 13, 39, "MathCaption",ExpressionUUID->"2968a76c-6945-4546-a99c-1117ec7d3e5a",
+ CellID->21578580],
+Cell[CellGroupData[{
+Cell[20047, 627, 395, 10, 25, "Input",ExpressionUUID->"b098376c-7387-a84a-b608-17fa87b996fc",
+ CellID->282252990],
+Cell[20445, 639, 385, 13, 23, "Output",ExpressionUUID->"ceb9c788-15aa-d64d-accc-8eca4bee4092",
+ CellID->439123554]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20879, 658, 553, 17, 39, "MathCaption",ExpressionUUID->"a29d7fd7-e6be-e646-85b8-aca581d12aa5",
+ CellID->69600949],
+Cell[CellGroupData[{
+Cell[21457, 679, 402, 10, 25, "Input",ExpressionUUID->"9c59e8cc-de95-1a4a-85c6-a0ab78355cd6",
+ CellID->443845553],
+Cell[21862, 691, 469, 17, 23, "Output",ExpressionUUID->"dc590a0b-2397-f146-bac6-06bcf6dec4a3",
+ CellID->8672960]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22380, 714, 469, 14, 39, "MathCaption",ExpressionUUID->"08c9ace3-6a27-594f-ba8a-9a38eab6262b",
+ CellID->42391797],
+Cell[CellGroupData[{
+Cell[22874, 732, 440, 11, 25, "Input",ExpressionUUID->"a92b093c-8ce9-d148-84e2-3d85696e0c51",
+ CellID->231112781],
+Cell[23317, 745, 506, 18, 23, "Output",ExpressionUUID->"3d985f61-4f62-3a4b-ac66-e3c51554d4b4",
+ CellID->461755360]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23872, 769, 194, 2, 39, "MathCaption",ExpressionUUID->"02cd4e80-637d-a840-80de-a49db30981a1",
+ CellID->87220652],
+Cell[CellGroupData[{
+Cell[24091, 775, 363, 9, 25, "Input",ExpressionUUID->"9251ee01-f48e-1c43-91af-2371c53f2b10",
+ CellID->9091409],
+Cell[24457, 786, 698, 27, 23, "Output",ExpressionUUID->"522ea7d8-542f-384b-9cfd-154c7c67d1b6",
+ CellID->602471971]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25204, 819, 539, 16, 55, "MathCaption",ExpressionUUID->"f64b1106-1594-c047-9faa-3b7cf3ab462f",
+ CellID->237800370],
+Cell[CellGroupData[{
+Cell[25768, 839, 199, 4, 25, "Input",ExpressionUUID->"9ec89fe8-3697-134b-ba64-27a3db73d8e3",
+ CellID->385310052],
+Cell[25970, 845, 308, 6, 24, "Output",ExpressionUUID->"412e1d77-039d-8940-b32c-87fe4e930938",
+ CellID->490843139]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26327, 857, 381, 9, 39, "MathCaption",ExpressionUUID->"073b2583-4769-0f4e-8e9c-c1b93f3093d6",
+ CellID->290015337],
+Cell[CellGroupData[{
+Cell[26733, 870, 301, 7, 25, "Input",ExpressionUUID->"05060194-2ec1-df4b-8555-b230e4d9498c",
+ CellID->100522143],
+Cell[27037, 879, 220, 4, 23, "Output",ExpressionUUID->"aa9aa62c-c856-ed4d-a087-87ff38b6c6d1",
+ CellID->92103503]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27306, 889, 573, 16, 55, "MathCaption",ExpressionUUID->"7d869437-065f-dc4c-af4d-99d05b056cce",
+ CellID->356279398],
+Cell[CellGroupData[{
+Cell[27904, 909, 200, 4, 25, "Input",ExpressionUUID->"76534462-73e6-164f-b594-ed95fef1c08d",
+ CellID->794698630],
+Cell[28107, 915, 793, 31, 25, "Output",ExpressionUUID->"941ba7d7-82f4-114d-b49f-e3d3927f4c04",
+ CellID->429947858]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28949, 952, 529, 16, 39, "MathCaption",ExpressionUUID->"917af4b9-6b07-ee40-bef8-f94002e3e156",
+ CellID->58998029],
+Cell[CellGroupData[{
+Cell[29503, 972, 531, 13, 25, "Input",ExpressionUUID->"951a7748-67c9-ff4e-ac69-90a8a9b4203b",
+ CellID->241482759],
+Cell[30037, 987, 1268, 50, 23, "Output",ExpressionUUID->"5eb01aa1-be7d-ef4b-bc2e-a51e7fe29bc6",
+ CellID->434497827]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31354, 1043, 804, 23, 56, "MathCaption",ExpressionUUID->"7d24b56b-e35f-ad4b-9219-236eed201d18",
+ CellID->398521],
+Cell[CellGroupData[{
+Cell[32183, 1070, 425, 11, 25, "Input",ExpressionUUID->"760a0332-6e88-824f-a5d1-67172649a6da",
+ CellID->128177717],
+Cell[32611, 1083, 2184, 87, 23, "Output",ExpressionUUID->"46641496-018b-bc40-9dd1-fdd00aa188cb",
+ CellID->247229367]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34844, 1176, 770, 22, 56, "MathCaption",ExpressionUUID->"97b03ce0-bba2-a247-8080-a44a5bd0c3ac",
+ CellID->907546154],
+Cell[CellGroupData[{
+Cell[35639, 1202, 255, 6, 25, "Input",ExpressionUUID->"97245512-dbd1-5045-9b95-2efbc0275b9b",
+ CellID->671510890],
+Cell[35897, 1210, 824, 32, 23, "Output",ExpressionUUID->"c160503b-da1d-ce4f-89b5-f42ea3365b5b",
+ CellID->10478433]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36770, 1248, 889, 29, 56, "MathCaption",ExpressionUUID->"c96a64fe-f108-aa40-9117-751860a78eec",
+ CellID->11612982],
+Cell[CellGroupData[{
+Cell[37684, 1281, 866, 24, 42, "Input",ExpressionUUID->"12a4861e-9a64-fe49-a61d-b29361fa4603",
+ CellID->202237577],
+Cell[38553, 1307, 1352, 57, 23, "Output",ExpressionUUID->"ddb4dbda-bb5a-b544-9db6-71608985452f",
+ CellID->197975957]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39966, 1371, 164, 2, 44, "Section",ExpressionUUID->"9f05c662-86da-cc4d-9486-2a0be313cbc7",
+ CellID->578734514],
+Cell[40133, 1375, 1585, 40, 85, "DefinitionBox",ExpressionUUID->"e36353e9-2c09-ac47-8f31-b8e8ab6da83d",
+ CellID->204161237],
+Cell[41721, 1417, 172, 2, 28, "Caption",ExpressionUUID->"16a3095f-9c4d-684e-9057-b60627e375ec",
+ CellID->193631368],
+Cell[CellGroupData[{
+Cell[41918, 1423, 369, 8, 39, "MathCaption",ExpressionUUID->"b91a81d8-492a-0b40-bc66-aa59c58a889a",
+ CellID->132766290],
+Cell[CellGroupData[{
+Cell[42312, 1435, 414, 10, 25, "Input",ExpressionUUID->"4a64c806-8fc5-ef49-8822-3d1bc69012f5",
+ CellID->1034699787],
+Cell[42729, 1447, 1053, 39, 23, "Output",ExpressionUUID->"5a2e33b8-c0cd-cc4b-ba26-dd660ab9f95d",
+ CellID->46919044]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43831, 1492, 757, 23, 39, "MathCaption",ExpressionUUID->"9ce51931-dffe-194c-980b-f0d264c37d15",
+ CellID->387536926],
+Cell[CellGroupData[{
+Cell[44613, 1519, 537, 14, 25, "Input",ExpressionUUID->"b0f10bb5-ac15-0a4e-b104-db2e40b15f82",
+ CellID->715640466],
+Cell[45153, 1535, 1788, 65, 25, "Output",ExpressionUUID->"d1424f6a-5b70-2b48-933f-966767d552ca",
+ CellID->45304350]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46990, 1606, 253, 7, 39, "MathCaption",ExpressionUUID->"45df7e09-d942-674d-88de-dc7244dbcff1",
+ CellID->106286932],
+Cell[CellGroupData[{
+Cell[47268, 1617, 370, 9, 25, "Input",ExpressionUUID->"a28e208d-8b94-0545-8105-becd51eb559a",
+ CellID->593103057],
+Cell[47641, 1628, 802, 27, 23, "Output",ExpressionUUID->"b64a7874-c640-9743-8424-4865957fe42f",
+ CellID->141447701]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48492, 1661, 386, 11, 39, "MathCaption",ExpressionUUID->"a61f2946-0ee7-544d-afae-29f02ca1ffda",
+ CellID->3226142],
+Cell[CellGroupData[{
+Cell[48903, 1676, 378, 9, 25, "Input",ExpressionUUID->"db1a8470-9e91-b84d-ab39-8bb9eb7412c3",
+ CellID->16008129],
+Cell[49284, 1687, 1149, 47, 23, "Output",ExpressionUUID->"49394760-985a-084d-9b11-503c232bc34a",
+ CellID->38973786]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50482, 1740, 521, 15, 55, "MathCaption",ExpressionUUID->"4765754d-3e42-074a-b40f-89438351a4be",
+ CellID->550900079],
+Cell[CellGroupData[{
+Cell[51028, 1759, 615, 16, 42, "Input",ExpressionUUID->"44bc16d7-81d2-fc4d-b4c4-f33f24cac383",
+ CellID->321948372],
+Cell[51646, 1777, 908, 31, 23, "Output",ExpressionUUID->"224cd711-6b94-c14d-b737-a81e909b019f",
+ CellID->116841785]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52603, 1814, 202, 3, 39, "MathCaption",ExpressionUUID->"18d827e4-af30-7548-9999-7bbd47c3d0ed",
+ CellID->951813948],
+Cell[CellGroupData[{
+Cell[52830, 1821, 726, 21, 42, "Input",ExpressionUUID->"0100a72e-38f9-cc4e-9c7f-8768adc61e3d",
+ CellID->12671921],
+Cell[53559, 1844, 1230, 43, 23, "Output",ExpressionUUID->"0011a4de-6f7f-9f4f-8318-795ee85cd998",
+ CellID->75726109]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54838, 1893, 283, 5, 55, "MathCaption",ExpressionUUID->"7f6159c0-d72b-3e42-9c20-cf59db9eeb71",
+ CellID->491305140],
+Cell[CellGroupData[{
+Cell[55146, 1902, 517, 14, 42, "Input",ExpressionUUID->"c27778c0-385a-524b-9a67-13f01b999b72",
+ CellID->773897221],
+Cell[55666, 1918, 6429, 217, 94, "Output",ExpressionUUID->"82bd0ff7-db7d-cb42-a015-9358edb06571",
+ CellID->138552271]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62156, 2142, 152, 2, 44, "Section",ExpressionUUID->"0a60758f-65b5-1a44-b2ba-69cfaab992d4",
+ CellID->567841620],
+Cell[62311, 2146, 366, 9, 24, "Text",ExpressionUUID->"2b780e85-9c8d-c74d-b116-94748db012b3",
+ CellID->108005628],
+Cell[62680, 2157, 769, 17, 42, "DefinitionBox",ExpressionUUID->"d66e103e-57b2-7148-95e1-13c8956b9055",
+ CellID->39852377],
+Cell[63452, 2176, 149, 2, 28, "Caption",ExpressionUUID->"203533d8-4125-7f47-ab8b-90f61d592c26",
+ CellID->8925198],
+Cell[CellGroupData[{
+Cell[63626, 2182, 231, 7, 39, "MathCaption",ExpressionUUID->"a58f9a4e-f620-fa4e-9fc1-5958e6bd82ce",
+ CellID->319863895],
+Cell[CellGroupData[{
+Cell[63882, 2193, 311, 7, 25, "Input",ExpressionUUID->"6baef93e-4a39-1b4b-8b03-7d9e1446e960",
+ CellID->283448318],
+Cell[64196, 2202, 1558, 59, 84, "Output",ExpressionUUID->"5e399805-7a58-c943-a684-71a8dd15620a",
+ CellID->242533562]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[65803, 2267, 231, 5, 39, "MathCaption",ExpressionUUID->"4aa85b46-6da6-ba46-8265-0a3d062c8462",
+ CellID->86800659],
+Cell[CellGroupData[{
+Cell[66059, 2276, 716, 21, 42, "Input",ExpressionUUID->"45826505-e2fa-0242-a381-3401974c02ca",
+ CellID->55951039],
+Cell[66778, 2299, 5851, 148, 66, "Output",ExpressionUUID->"e21ec435-47ee-cf44-a073-01ea0aebd80b",
+ CellID->396194228]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72690, 2454, 191, 2, 73, "TutorialMoreAboutSection",ExpressionUUID->"a79e6c6a-daa7-c343-8eb3-7eed2aae3591",
+ CellID->425208759],
+Cell[72884, 2458, 260, 4, 23, "TutorialMoreAbout",ExpressionUUID->"1e0c5f1a-b724-3245-b905-aa7ef162daa9",
+ CellID->228898572]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73181, 2467, 127, 1, 73, "RelatedTutorialsSection",ExpressionUUID->"1093817b-f30d-3443-b2b1-fc8f17aacddc",
+ CellID->89118638],
+Cell[73311, 2470, 107, 1, 23, "RelatedTutorials",ExpressionUUID->"d2767cfb-69c9-9f46-836f-9d8f69d98220",
+ CellID->481208245]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[73467, 2477, 109, 1, 71, "MetadataSection",ExpressionUUID->"e4e9414c-a013-5841-bca5-ad4ac2829747",
+ CellID->70054418],
+Cell[73579, 2480, 472, 11, 25, "History",ExpressionUUID->"73ed6f17-1429-2140-bc58-a76829b66277",
+ CellID->49111931],
+Cell[CellGroupData[{
+Cell[74076, 2495, 121, 1, 20, "CategorizationSection",ExpressionUUID->"b03e0564-662f-bd49-b3fe-d40159735ed2",
+ CellID->64279907],
+Cell[74200, 2498, 137, 2, 70, "Categorization",ExpressionUUID->"6895f35b-a0d5-2c46-984b-73777e966167",
+ CellID->102524887],
+Cell[74340, 2502, 133, 2, 70, "Categorization",ExpressionUUID->"36d2d643-6193-b04e-bc6a-27ee5d0cbb17",
+ CellID->88845281],
+Cell[74476, 2506, 124, 2, 70, "Categorization",ExpressionUUID->"72e52800-60eb-504f-81d7-d1532315dc6c",
+ CellID->982067793],
+Cell[74603, 2510, 154, 2, 70, "Categorization",ExpressionUUID->"7c589b4f-7017-4847-998e-006220472080",
+ CellID->690407564]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[74794, 2517, 110, 1, 20, "KeywordsSection",ExpressionUUID->"7e6eac1b-c5c2-3c43-91e2-ff7b589a9866",
+ CellID->653217484],
+Cell[74907, 2520, 99, 1, 70, "Keywords",ExpressionUUID->"9284731e-b3f1-bb4b-a36f-a258faf6d431",
+ CellID->512074469]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
