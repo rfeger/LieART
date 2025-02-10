@@ -1,8 +1,14 @@
 # LieART
 
-LieART (<u>Lie</u> <u>A</u>lgebras and <u>R</u>epresentation <u>T</u>heory) is a Wolfram paclet for computations frequently encountered in Lie algebras and representation theory, such as tensor product decomposition and subalgebra branching of irreducible representations. LieART can handle all classical and exceptional Lie algebras. It computes root systems of Lie algebras, weight systems, and several other properties of irreducible representations. LieART's user interface has been created with a strong focus on usability and thus allows the input of irreducible representations via their dimensional name, while the output is in the textbook style used in most particle-physics publications. The unique Dynkin labels of irreducible representations are used internally and can also be used for input and output. LieART exploits the Weyl reflection group for most of the calculations, resulting in fast computations and low memory consumption. LieART 2.0 now includes the branching rules to special subalgebras for all classical and exceptional Lie algebras up to and including rank 15. Extensive tables of properties, tensor products, and branching rules of irreducible representations are included in the appendix of the associated publication.
+LieART (<u>Lie</u> <u>A</u>lgebras and <u>R</u>epresentation <u>T</u>heory) is a Wolfram paclet for computations frequently encountered in Lie algebras and representation theory, such as tensor product decomposition and subalgebra branching of irreducible representations.
 
-## [Download](https://github.com/rfeger/LieART)
+LieART can handle all classical and exceptional Lie algebras. It computes root systems of Lie algebras, weight systems, and several other properties of irreducible representations. LieART's user interface has been created with a strong focus on usability and thus allows the input of irreducible representations via their dimensional name, while the output is in the textbook style used in most particle-physics publications.
+
+The unique Dynkin labels of irreducible representations are used internally and can also be used for input and output. LieART exploits the Weyl reflection group for most of the calculations, resulting in fast computations and low memory consumption.
+
+LieART 2.0 now includes the branching rules to special subalgebras for all classical and exceptional Lie algebras up to and including rank 15. Extensive tables of properties, tensor products, and branching rules of irreducible representations are included in the appendix of the associated publication.
+
+## Download
 LieART is hosted by Hepforge, IPPP Durham. The LieART project home page is  
    [http://lieart.hepforge.org/](http://lieart.hepforge.org/)  
 and the LieART Mathematica application can be downloaded as an archive from  
@@ -10,11 +16,16 @@ and the LieART Mathematica application can be downloaded as an archive from
 
 ## Automatic Installation
 
-Start Mathematica and in the front end select the menu entry `File -> Install..`. In the appearing dialog select `Application` as `Type of Item to Install` and the archive file in the open file dialog from `Source`. (It is not necessary to extract the archive since Mathematica does this automatically.) Choose whether you want to install LieART only for an individual user or system-wide. For a system-wide installation, you might be asked for the superuser password.
+1. Start Mathematica and in the front end select the menu entry `File -> Install..`.
+2. In the appearing dialog select `Application` as `Type of Item to Install` and the archive file in the open file dialog from `Source`. (It is not necessary to extract the archive since Mathematica does this automatically.)
+3. Choose whether you want to install LieART only for an individual user or system-wide. For a system-wide installation, you might be asked for the superuser password.
 
 ## Manual Installation
 
-If problems with the automatic installation occur, proceed with a manual one as follows: Extract the archive to the subdirectory `Applications` of the directory to which `$UserBaseDirectory` is set for a user-only installation. For a system-wide installation, place it in the subdirectory `AddOns/Applications` of `$InstallationDirectory`. Restart Mathematica to allow it to integrate LieART's documentation into its help system.
+If problems with the automatic installation occur, proceed with a manual one as follows:
+1. Extract the archive to the subdirectory `Applications` of the directory to which `$UserBaseDirectory` is set for a user-only installation.
+2. For a system-wide installation, place it in the subdirectory `AddOns/Applications` of `$InstallationDirectory`.
+3. Restart Mathematica to allow it to integrate LieART's documentation into its help system.
 
 ## Documentation
 
@@ -25,9 +36,9 @@ Help
       -> Add-ons & Packages (at the bottom)
          -> LieART, Button labeled "Documentation"
 ```
-(Alternatively, a search for `LieART` (with correct case) in the Documentation Center leads to the same page.) The displayed page serves as the documentation home of LieART and includes links to the descriptions of its most important functions.
+The displayed page serves as the documentation home of LieART and includes links to the descriptions of its most important functions.
 
-The documentation of LieART includes a `Quick Start Tutorial` for the impatient, which can be found almost on the top right of LieART's documentation home under the drop-down `Tutorials`.
+The documentation of LieART includes a `Quick Start Tutorial` for the impatient. This tutorial can be found almost on the top right of LieART's documentation home under the drop-down `Tutorials`.
 
 Tables of representation properties, tensor products, and branching rules generated by LieART can be found in the section `Tables` at the bottom of LieART's documentation home.
 
@@ -36,7 +47,7 @@ Tables of representation properties, tensor products, and branching rules genera
 LieART comes with a LaTeX package that defines commands to display irreps, roots, and weights properly. The style file (`lieart.sty`) can be found in the subdirectory `Latex/` of the LieART project tree. Please copy it to a location where your LaTeX installation can find it.
 
 ## Source Control Repository
-For bug reports and feature requests as well as the latest development version visit 
+For bug reports and feature requests as well as the latest development version visit the LieART GitHub repository at  
    [https://github.com/rfeger/LieART](https://github.com/rfeger/LieART)
 
 ## License

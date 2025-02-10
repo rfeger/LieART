@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.1.1] - 2025-02-6
+## [2.1.1] - 2025-02-06
 ### Fixed
 - Fix related bugs in irrep conjugacy, which treated some real irreps as complex, especially in SO(8). (reported and fixed by Matt Mitchell)
 - Fix centering in SpindleShape for Mathematica version 14.
@@ -48,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.1.6] - 2015-01
 ### Added
-- New commans IrrepMultiplicity and CasimirInvariant (suggestion of Daniel Boer).
+- New commands IrrepMultiplicity and CasimirInvariant (suggestion of Daniel Boer).
 
 ## [1.1.5] - 2014-08
 ### Fixed
