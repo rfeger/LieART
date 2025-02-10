@@ -1,0 +1,17 @@
+# Mathematica Notebooks (.nb) are binary files, so treat them as such
+*.nb binary
+
+# Paclet files are also binary (compressed archives)
+*.paclet binary
+
+# Mathematica scripts (.m, .wl) are text files, ensure proper handling
+*.m text eol=lf
+*.wl text eol=lf
+
+# JSON and other text-based config files
+*.json text eol=lf
+*.wxf text eol=lf
+
+# Ignore automatically generated cache files
+*.MX binary
+*.WDX binary

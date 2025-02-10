@@ -1,2 +1,35 @@
-build/
+# Ignore all files with the .code-workspace extension, typically used by Visual Studio Code for workspace settings
 *.code-workspace
+
+# Ignore compiled Mathematica files
+*.MX
+*.WDX
+
+# Ignore Wolfram cache and backup files
+*.mb
+*.tmp
+*.bak
+
+# Ignore logs and output files
+*.log
+*.out
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build and deployment directories
+build/
+dist/
+output/
+generated/
+
+# Ignore package-specific cache files
+PacletManager/Cache/
+*.paclet~
+
+# Ignore notebooks' automatic backup files (optional)
+*.nb~
+
+# Ignore temporary Mathematica notebook history files (if applicable)
+WolframScratch/
