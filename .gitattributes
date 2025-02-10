@@ -15,3 +15,11 @@
 # Ignore automatically generated cache files
 *.MX binary
 *.WDX binary
+
+# Treat LaTeX style files as text with LF EOL normalization
+*.sty text eol=lf
+
+# Ensure consistent line endings for license and markdown files
+COPYING text eol=lf
+COPYING.LESSER text eol=lf
+*.md text eol=lf
