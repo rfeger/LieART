@@ -1,4 +1,5 @@
 (* ::Package:: *)
+
 (* :Title: LieART`BranchingRules *)
 (* :Authors: Robert Feger, Thomas Kephart and Robert Saskowski *)
 (* :Summary: *)
@@ -8,7 +9,7 @@
 
 (*This file is part of LieART. See LieART.m for licensing information*) 
 
-BeginPackage["LieART`"]
+BeginPackage["LieARTTeam`LieART`"]
 
 {U,A,B,C,D,F4,G2,E6,E7,E8,
 Algebra,ProductAlgebra,
@@ -25,7 +26,7 @@ ProjectionMatrix::usage = "ProjectionMatrix  "
 EndPackage[]
 
 
-BeginPackage["LieART`BranchingRules`",{"LieART`"}]
+BeginPackage["LieARTTeam`LieART`BranchingRules`",{"LieARTTeam`LieART`"}]
 
 
 Begin["`Private`"]
@@ -38,17 +39,24 @@ N. Yamatsu (2015) arXiv:1511.08771
 C. Kim, I. Koh, Y. Park, K.Y. Kim, Y. Kim. (1983) Phys.Rev. D 27.
 *)
 
+
+
 (* ::Section:: *)
 (* Regular Subalgebras *)
+
 
 (* ::Subsection:: *)
 (* Semi-Simple Subalgebras *)
 
+
 (* ::Subsubsection:: *)
 (* A_n *)
 
+
 (* ::Subsubsection:: *)
 (* B_n *)
+
+
 ProjectionMatrix[origin:Algebra[B][3] ,ProductAlgebra[Algebra[A][1],Algebra[A][1],Algebra[A][1]]]    := SemiSimpleSubalgebra[origin, 2]
 ProjectionMatrix[origin:Algebra[B][3] ,ProductAlgebra[Algebra[A][3]]]                                := Permute[SemiSimpleSubalgebra[origin, 3],Cycles[{{2,3}}]]
 ProjectionMatrix[origin:Algebra[B][4],ProductAlgebra[Algebra[A][3],Algebra[A][1]]]                   := Permute[SemiSimpleSubalgebra[origin, 3],Cycles[{{2,3}}]]
@@ -87,8 +95,12 @@ ProjectionMatrix[origin:Algebra[B][n_],ProductAlgebra[Algebra[D][k_],Algebra[C][
 		Cycles[{{n,n-1}}]
 	] /; k>=4 && (n-k)==2
 
+
+
 (* ::Subsubsection:: *)
 (* C_n *)
+
+
 ProjectionMatrix[origin:Algebra[C][n_],ProductAlgebra[Algebra[A][1],Algebra[C][m_]]] 				 := Join[{ConstantArray[1, n]}, MapThread[Prepend, {IdentityMatrix[n - 1], ConstantArray[0, n - 1]}]] /; n >= 3&&m==n-1
 ProjectionMatrix[origin:Algebra[C][2],ProductAlgebra[Algebra[A][1],Algebra[A][1]]] := {{1,1},{0,1}}
 ProjectionMatrix[origin:Algebra[C][n_],ProductAlgebra[Algebra[C][k_],Algebra[C][m_]]] 				 :=
@@ -99,8 +111,12 @@ ProjectionMatrix[origin:Algebra[C][n_],ProductAlgebra[Algebra[C][k_],Algebra[C][
 	  mat
 	  ] /; n >= 3 && k >= 2 && k <= n - 2 && m==n-k && m>=k
 
+
+
 (* ::Subsubsection:: *)
 (* D_n *)
+
+
 ProjectionMatrix[origin:Algebra[D][4] ,ProductAlgebra[Algebra[A][1],Algebra[A][1],Algebra[A][1],Algebra[A][1]]]   := {{1,0,0,0},{-1,-2,-1,-1},{0,0,1,0},{0,0,0,1}}
 ProjectionMatrix[origin:Algebra[D][5] ,ProductAlgebra[Algebra[A][1],Algebra[A][1],Algebra[A][3]]]   := Permute[SemiSimpleSubalgebra[origin, 2],Cycles[{{3,4}}]]
 ProjectionMatrix[origin:Algebra[D][6] ,ProductAlgebra[Algebra[A][3],Algebra[A][3]]]   	:= {{1,0,0,0,0,0},{0,1,0,0,0,0},{-1,-2,-2,-2,-1,-1},{0,0,0,0,1,0},{0,0,0,1,0,0},{0,0,0,0,0,1}}
@@ -108,92 +124,150 @@ ProjectionMatrix[origin:Algebra[D][n_] ,ProductAlgebra[Algebra[A][1],Algebra[A][
 ProjectionMatrix[origin:Algebra[D][n_] ,ProductAlgebra[Algebra[D][m_],Algebra[D][k_]]]              := ReverseOrderSimpleRoots[SemiSimpleSubalgebra[origin, m],m] /; m==(n-k)&&n>=6
 ProjectionMatrix[origin:Algebra[D][n_] ,ProductAlgebra[Algebra[A][3],Algebra[D][k_]]]  := Permute[SemiSimpleSubalgebra[origin,3],Cycles[{{2,3}}]] /; n >= 7 && k==n-3
 
+
+
 (* ::Subsubsection:: *)
 (* E_6 *)
+
+
 ProjectionMatrix[origin:E6 ,ProductAlgebra[Algebra[A][2],Algebra[A][2],Algebra[A][2]]] := SemiSimpleSubalgebra[origin, 3]
 ProjectionMatrix[origin:E6 ,ProductAlgebra[Algebra[A][5],Algebra[A][1]]]               := SemiSimpleSubalgebra[origin, 6]
 
+
+
 (* ::Subsubsection:: *)
 (* E_7 *)
+
+
 ProjectionMatrix[origin:E7,ProductAlgebra[Algebra[A][7]]]    := SemiSimpleSubalgebra[origin,7]
 ProjectionMatrix[origin:E7,ProductAlgebra[Algebra[D][6],Algebra[A][1]]]    := Permute[SemiSimpleSubalgebra[origin,5],Cycles[{{5,6,7}}]]
 ProjectionMatrix[origin:E7,ProductAlgebra[Algebra[A][5],Algebra[A][2]]]    := Permute[SemiSimpleSubalgebra[origin,4],Cycles[{{5,6,7}}]]
 
+
+
 (* ::Subsubsection:: *)
 (* E_8 *)
+
+
 ProjectionMatrix[origin:E8,ProductAlgebra[Algebra[A][8]]]    := SemiSimpleSubalgebra[origin,8]
 ProjectionMatrix[origin:E8,ProductAlgebra[E7,Algebra[A][1]]] := Permute[SemiSimpleSubalgebra[origin,7],Cycles[{{7, 8}}]]
 ProjectionMatrix[origin:E8,ProductAlgebra[E6,Algebra[A][2]]] := Permute[SemiSimpleSubalgebra[origin,6],Cycles[{{6, 8}}]]
 ProjectionMatrix[origin:E8,ProductAlgebra[Algebra[A][4],Algebra[A][4]]] := Permute[SemiSimpleSubalgebra[origin,4],Cycles[{{4, 5, 6, 7, 8}}]]
 ProjectionMatrix[origin:E8,ProductAlgebra[Algebra[D][8]]]    := Permute[ReverseOrderSimpleRoots[SemiSimpleSubalgebra[origin,1],7],Cycles[{{7,8}}]]
 
+
+
 (* ::Subsubsection:: *)
 (* F_4 *)
+
+
 ProjectionMatrix[origin:F4,ProductAlgebra[Algebra[B][4]]] := {{-2,-3,-2,-1},{1,0,0,0},{0,1,0,0},{0,0,1,0}}
 ProjectionMatrix[origin:F4,ProductAlgebra[Algebra[A][2],Algebra[A][2]]] := Permute[SemiSimpleSubalgebra[origin,2],Cycles[{{1,4,3,2}}]]
 ProjectionMatrix[origin:F4,ProductAlgebra[Algebra[A][1],Algebra[C][3]]] := {{-2,-3,-2,-1},{0,0,0,1},{0,0,1,0},{0,1,0,0}}
 
+
+
 (* ::Subsubsection:: *)
 (* G_2 *)
+
+
 ProjectionMatrix[origin:G2, ProductAlgebra[Algebra[A][2]]] := SemiSimpleSubalgebra[origin,1]
 ProjectionMatrix[origin:G2, ProductAlgebra[Algebra[A][1], Algebra[A][1]]] := SemiSimpleSubalgebra[origin,2]
+
+
 
 (* ::Section:: *)
 (* Non-Semi-Simple Subalgebras *)
 
+
 (* ::Subsubsection:: *)
 (* A_n *)
+
+
 ProjectionMatrix[origin:Algebra[A][n_],ProductAlgebra[Algebra[A][m_],Algebra[A][k_],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,-k-1] /; m==(n-k-1)
 ProjectionMatrix[origin:Algebra[A][n_],ProductAlgebra[Algebra[A][m_],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,-1] /; m==(n-1)&&n>=2
 ProjectionMatrix[origin:Algebra[A][1], ProductAlgebra[Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,1]
 
+
+
 (* ::Subsubsection:: *)
 (* B_n *)
+
+
 ProjectionMatrix[origin:Algebra[B][3] ,ProductAlgebra[Algebra[C][2],Algebra[U][1]]] := {{0,0,1},{0,1,0},{2,2,1}}
 ProjectionMatrix[origin:Algebra[B][n_],ProductAlgebra[Algebra[B][m_],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,1] /; m==(n-1)&&n>=3 (*originally -1*)
 
+
+
 (* ::Subsubsection:: *)
 (* C_n *)
+
+
 ProjectionMatrix[origin:Algebra[C][n_],ProductAlgebra[Algebra[A][m_],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,-1] /; m==(n-1)&&n>=2
+
+
 
 (* ::Subsubsection:: *)
 (* D_n *)
+
+
 ProjectionMatrix[origin:Algebra[D][n_],ProductAlgebra[Algebra[D][m_],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,1] /; m==(n-1)&&n>=5 (*originally -2*)
 (*ProjectionMatrix[origin:Algebra[D][n_],ProductAlgebra[Algebra[A][m_],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,-2] /; m==(n-1)&&n>=4*)
 ProjectionMatrix[origin:Algebra[D][5],ProductAlgebra[Algebra[A][4],Algebra[U][1]]] := {{0,0,0,1,0},{0,0,1,0,0},{0,1,0,0,0},{1,0,0,0,0},{-2,-4,-6,-3,-5}}
 ProjectionMatrix[origin:Algebra[D][n_],ProductAlgebra[Algebra[A][m_],Algebra[U][1]]] := Join[Transpose@Join[IdentityMatrix[n-1], {ConstantArray[0,n-1]}],{Join[Range[n-2],{(n-2)/2,n/2}]}]/; m==(n-1)&&n>=4&&EvenQ[n]&&n<=10
 ProjectionMatrix[origin:Algebra[D][n_],ProductAlgebra[Algebra[A][m_],Algebra[U][1]]] := Join[Transpose@Join[IdentityMatrix[n-1], {ConstantArray[0,n-1]}],{Join[2*Range[n-2],{n-2,n}]}]/; m==(n-1)&&n>=4
 
+
+
 (* ::Subsubsection:: *)
 (* E_6 *)
+
+
 ProjectionMatrix[origin:E6,ProductAlgebra[Algebra[D][5],Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,5]
+
+
 
 (* ::Subsubsection:: *)
 (* E_7 *)
+
+
 ProjectionMatrix[origin:E7,ProductAlgebra[E6,Algebra[U][1]]] := NonSemiSimpleSubalgebra[origin,6]
+
+
 
 (* ::Subsection:: *)
 (* Non-Maximal Subalgebras *)
 
+
 (* ::Subsubsection:: *)
 (* A_n *)
+
+
 (*ProjectionMatrix[origin:Algebra[A][n_],ProductAlgebra[Algebra[A][m_],Algebra[A][k_]]] := NonMaximalSubalgebra[origin,{m+1}] /; m==(n-k-1)&&n>=3
 ProjectionMatrix[origin:Algebra[A][n_],ProductAlgebra[Algebra[A][m_]]] := NonMaximalSubalgebra[origin,{m+1,n}] /; m<n&&n>=2*)
+
+
 
 (* ::Subsubsection:: *)
 (* B_n *)
 
+
 (* ::Subsubsection:: *)
 (* C_n *)
+
 
 (* ::Subsubsection:: *)
 (* D_n *)
 
+
 (* ::Section:: *)
 (* Special Subalgebras *)
 
+
 (* ::Subsection:: *)
 (* A_n *)
+
+
 ProjectionMatrix[origin:Algebra[A][2],ProductAlgebra[Algebra[A][1]]] := SpecialSubalgebra[origin,{ProductIrrep[Irrep[A][2]]}]
 ProjectionMatrix[origin:Algebra[A][5],ProductAlgebra[Algebra[A][3]]] := {{0,1,0,1,0},{1,0,0,0,1},{0,1,2,1,0}}
 ProjectionMatrix[origin:Algebra[A][5],ProductAlgebra[Algebra[A][2]]] := {{0,1,0,2,2}, {2,2,3,1,0}} (*tried {{1,2}} but got conjugates wrong*)
@@ -271,6 +345,8 @@ ProjectionMatrix[origin:Algebra[A][15],ProductAlgebra[Algebra[D][5]]] := {{0,0,0
 
 (* ::Subsection:: *)
 (* B_n *)
+
+
 ProjectionMatrix[origin:Algebra[B][3] ,ProductAlgebra[G2]] := SpecialSubalgebra[origin, {ProductIrrep[Irrep[G2][0,0]],ProductIrrep[Irrep[G2][1,0]]}]
 ProjectionMatrix[origin:Algebra[B][4] ,ProductAlgebra[Algebra[A][1],Algebra[A][1]]] := {{2,4,6,3},{2,2,0,1}}
 ProjectionMatrix[origin:Algebra[B][7] ,ProductAlgebra[Algebra[A][3]]] :={{1,0,1,0,0,2,1},{0,1,2,4,3,2,1},{1,2,1,0,2,2,1}}
@@ -381,8 +457,12 @@ ProjectionMatrix[origin:Algebra[B][p_] ,ProductAlgebra[Algebra[B][s_],Algebra[C]
 	  Return[mat]
 	  ] /; s>=3 && p==5*s+2
 
+
+
 (* ::Subsection:: *)
 (* C_n *)
+
+
 ProjectionMatrix[origin:Algebra[C][3] ,ProductAlgebra[Algebra[A][1],Algebra[A][1]]] := {{2, 4, 4},{1, 0, 1}}
 ProjectionMatrix[origin:Algebra[C][5] ,ProductAlgebra[Algebra[A][1],Algebra[C][2]]] := SpecialSubalgebra[origin, {ProductIrrep[Irrep[A][1],Irrep[C][0,1]]}]
 ProjectionMatrix[origin:Algebra[C][6] ,ProductAlgebra[Algebra[A][1],Algebra[C][2]]] := SpecialSubalgebra[origin, {ProductIrrep[Irrep[A][2],Irrep[C][1,0]]}]
@@ -587,6 +667,8 @@ ProjectionMatrix[origin:Algebra[C][n_],ProductAlgebra[Algebra[A][1],Algebra[C][m
 
 (* ::Subsection:: *)
 (* D_n *)
+
+
 ProjectionMatrix[origin:Algebra[D][4] ,ProductAlgebra[Algebra[A][2]]] :=  SpecialSubalgebra[origin, {ProductIrrep[Irrep[A][1,1]]}]
 (* ProjectionMatrix[origin:Algebra[D][4] ,ProductAlgebra[Algebra[B][3]]] :=  {{0,0,1,0},{0,1,0,0},{1,0,0,1}} *)
 ProjectionMatrix[origin:Algebra[D][4] ,ProductAlgebra[Algebra[B][3]]] :=  SpecialSubalgebra[origin, {ProductIrrep[Irrep[B][0,0,0]],ProductIrrep[Irrep[B][1,0,0]]}]
@@ -852,6 +934,8 @@ ProjectionMatrix[origin:Algebra[D][8] ,ProductAlgebra[Algebra[C][2],Algebra[C][2
 
 (* ::Subsection:: *)
 (* E_6 *)
+
+
 ProjectionMatrix[origin:E6, ProductAlgebra[Algebra[A][2]]] := {{2,2,5,2,2,1},{2,5,5,5,2,4}}
 ProjectionMatrix[origin:E6, ProductAlgebra[G2]] := Permute[{{0,1,0,1,0,1},{2,2,5,2,2,1}},Cycles[{{1,2}}]]
 (*Kim et al version*) ProjectionMatrix[origin:E6, ProductAlgebra[Algebra[C][4]]] := {{0,1,0,1,0,0},{1,0,0,0,1,0},{0,1,2,1,0,0},{0,0,0,0,0,1}}
@@ -861,6 +945,8 @@ ProjectionMatrix[origin:E6, ProductAlgebra[Algebra[A][2], G2]] := Permute[{{1,2,
 
 (* ::Subsection:: *)
 (* E_7 *)
+
+
 ProjectionMatrix[origin:E7, ProductAlgebra[Algebra[A][1]]] := {{34,66,96,75,52,27,49}}
 (**)
 (*Multiple E7 -> SU(2) branchings:*) 
@@ -876,6 +962,8 @@ ProjectionMatrix[origin:E7, ProductAlgebra[G2, Algebra[C][3]]] := Permute[{{0,0,
 
 (* ::Subsection:: *)
 (* E_8 *)
+
+
 ProjectionMatrix[origin:E8, ProductAlgebra[Algebra[A][1]]] := {{72,142,210,172,132,90,46,106}}
 (**)
 (*Multiple E8 -> SU(2) branchings:*)
@@ -890,11 +978,15 @@ ProjectionMatrix[origin:E8, ProductAlgebra[Algebra[C][2]]] := {{4,8,16,12,8,8,2,
 
 (* ::Subsection:: *)
 (* G_2 *)
+
+
 ProjectionMatrix[origin:G2,ProductAlgebra[Algebra[A][1]]] := SpecialSubalgebra[origin, {ProductIrrep[Irrep[A][6]]}]
 
 
 (* ::Subsection:: *)
 (* F_4 *)
+
+
 ProjectionMatrix[origin:F4, ProductAlgebra[Algebra[A][1]]] := {{22,42,30,16}}
 ProjectionMatrix[origin:F4, ProductAlgebra[Algebra[A][1],G2]] := Permute[{{4,8,6,4},{0,1,0,0},{1,0,1,0}},Cycles[{{2,3}}]]
 

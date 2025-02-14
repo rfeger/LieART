@@ -1,4 +1,5 @@
 (* ::Package:: *)
+
 (* :Title: LieART`Tables *)
 (* :Authors: Robert Feger, Thomas Kephart and  Robert Saskowski *)
 (* :Summary: *)
@@ -8,7 +9,7 @@
 
 (*This file is part of LieART. See LieART.m for licensing information*) 
 
-BeginPackage["LieART`Tables`", { "LieART`","LieART`BranchingRules`"}]
+BeginPackage["LieARTTeam`LieART`Tables`", { "LieARTTeam`LieART`","LieARTTeam`LieART`BranchingRules`"}]
 
 Starred::usage = "Starred  "
 StarredVar::usage = "StarredVar  "
@@ -34,8 +35,11 @@ BasicIrrepsOnly::usage = "BasicIrrepsOnly  ";
 
 Begin["`Private`"] 
 
+
+
 (* ::Section:: *)
 (* Initial Settings *)
+
 
 tableNumber=0;
 $WriteToLaTeXFile=False;
@@ -43,8 +47,11 @@ $IrrepPropertiesLaTeXFile="IrrepPropertiesTables.tex";
 $TensorProductsLaTeXFile="TensorProductsTables.tex";
 $BranchingRulesLaTeXFile="BranchingRulesTables.tex";
 
+
+
 (* ::Section:: *)
 (* Utility Functions *)
+
 
 Attributes[Add]=HoldAll;
 Add[numbers_,pos_,max_]:=
@@ -89,8 +96,11 @@ ClearSavedIrrepProperties[expr__]:=
         DimName[Irrep[A][0,2]] = IrrepName[Algebra[A][2]][6, True, 0];
     ]
 
+
+
 (* ::Section:: *)
 (* Formatting *)
+
 
 Format[Starred[singletCount_],TraditionalForm]:=Superscript[singletCount,"\[SixPointedStar]"]
 Format[StarredVar[singletCount_,U1singletCount_],TraditionalForm]:=Row[{singletCount,"+",Superscript[U1singletCount,"\[SixPointedStar]"]}]
@@ -105,8 +115,11 @@ Format[AlignPrime[irrepname:IrrepName[algebra_][dim_, conjugated_, numPrimes_]],
 
 Format[AlignPrime[irrepname_],LaTeXForm]:= ToLaTeX[irrepname]
 
+
+
 (* ::Subsection:: *)
 (* Irrep Properties Table *)
+
 
 Format[DisplayIrrepPropertiesTable[algebra_,data_,indexDivisor_,subalgebras_,congruencyClassName_],TraditionalForm]:=
 Module[{table,tableCaption=ToString[algebra,TraditionalForm]<>" Irreps",semisimplesubalgebras=DeleteCases[#,U1]&/@subalgebras},
@@ -174,8 +187,11 @@ Module[{head,foot,tableCaption=ToString[ToLaTeX[algebra]<>" Irreps"],semisimples
     ]
 ]
 
+
+
 (* ::Subsection:: *)
 (* Tensor Products Table *)
+
 
 Format[DisplayTensorProductsTable[algebra_,productDecompositions_],TraditionalForm]:=
 Module[{tableCaption=Row[{algebra," Tensor Products"}]},
@@ -209,8 +225,11 @@ Module[{tableCaption=ToString[ToLaTeX[algebra]<>" Tensor Products"]},
     ]
 ]
 
+
+
 (* ::Subsection:: *)
 (* Branching Rules Table *)
+
 
 Format[AlgebraBranching,TraditionalForm]:="\[RightArrow]"
 Format[AlgebraBranching,LaTeXForm]:="& $\\to$ &"
@@ -269,6 +288,7 @@ Module[{tableCaption=ToString[ToLaTeX[algebra]<>" Branching Rules"]},
 (* ::Subsection:: *)
 (* Irrep Properties Table *)
 
+
 SingletInDecomposition[irrep_,subgroup_]:=
 Module[
     {singletCount,U1singletCount,decomposition},
@@ -316,8 +336,11 @@ Module[
     DisplayIrrepPropertiesTable[algebra,data,indexDivisor,subalgebras,OptionValue[CongruencyClassName]]
 ]
 
+
+
 (* ::Subsection:: *)
 (* Tensor Products Table *)
+
 
 Options[TensorProductsTable]={MaxDim->100,MaxDynkinDigit->3,MaxDynkinDigitInResult->3,MaxDimInResult->200,BasicIrrepsOnly->False};
 TensorProductsTable[algebra_,opts:OptionsPattern[]]:=
@@ -353,8 +376,11 @@ Module[{irreps,irrepPairs,productDecompositions,time,file},
     DisplayTensorProductsTable[algebra,productDecompositions]
 ]
 
+
+
 (* ::Subsection:: *)
 (* Branching Rule Table *)
+
 
 BranchingRules[irreps_,SU15,{SU3}]:=
 	Join@@(BranchingRules[irreps, SU15,{SU3},#]&/@{1,2})

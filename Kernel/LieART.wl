@@ -27,9 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 (*  :Discussion: *)
 
 Print["LieART 2.1.1"];
-Print["last revised 6 February 2025"]
+Print["last revised 14 February 2025"]
 
-BeginPackage["LieART`", {"LieART`BranchingRules`"}]
+BeginPackage["LieARTTeam`LieART`"]
+Get["LieART`BranchingRules`"]
 
 (* Algebras *)
 CartanMatrix::usage = "CartanMatrix[algebra] is the Cartan matrix of algebra."
@@ -101,19 +102,19 @@ HighestRoot::usage = "HighestRoot[algebra] gives the highest root of the roots s
 NumberOfPositiveRoots::usage = "NumberOfPositiveRoots[algebra] gives the number of positive roots of algebra."
 
 (* Orbits *)
-Orbit::usage
+Orbit::usage = "Orbit  "
 DimOrbit::usage = "DimOrbit  "
 LowestOrbit::usage = "LowestOrbit  "
 
 
 (* Irreps *)
-WeightSystem::usage
-WeightLevel::usage
+WeightSystem::usage = "WeightSystem  "
+WeightLevel::usage = "WeightLevel  "
 
 Dim::usage = 
 "Dim[irrep] computes the dimension of irrep."
 
-DimName::usage
+DimName::usage = "DimName  "
 
 Index::usage = 
 "Index[irrep] computes the index of irrep."
@@ -121,14 +122,14 @@ Index::usage =
 CasimirInvariant::usage = 
 "CasimirInvariant[irrep] computes the Casimir invariant of irrep."
 
-Height::usage
+Height::usage = "Height  "
 WeightMultiplicity::usage = "WeightMultiplicity  "
 
 YoungTableau::usage = 
 "YoungTableau[irrep] displays the Young tableau corresponding to irrep of SU(N)"
 
 (* Decompositions *)
-DecomposeIrrep::usage
+DecomposeIrrep::usage = "DecomposeIrrep  "
 DecomposeProduct::usage = "DecomposeProduct  "
 ProjectionMatrix::usage = "ProjectionMatrix  "
 
@@ -553,12 +554,12 @@ InverseOmegaMatrix[algebra_?SimpleLieAlgebraQ] := InverseOmegaMatrix[algebra] = 
 OrthogonalFundamentalWeights[algebra_?SimpleLieAlgebraQ]        := OrthogonalFundamentalWeights[algebra]        =  WeightOrthogonal[AlgebraClass[algebra]] @@@ OmegaMatrix[algebra]
 InverseOrthogonalFundamentalWeights[algebra_] := InverseOrthogonalFundamentalWeights[algebra] =  WeightOrthogonal[AlgebraClass[algebra]] @@@ InverseOmegaMatrix[algebra]
 
-NormalizeSimpleRoots[roots_] := roots Sqrt[2/Max[#.# & /@ roots]]
+NormalizeSimpleRoots[roots_] := roots Sqrt[2/Max[# . # & /@ roots]]
 
 DMatrix[algebra_?SimpleLieAlgebraQ] := DiagonalMatrix[ScalarProduct[#,#]/2 & /@ NormalizeSimpleRoots[OrthogonalSimpleRoots[algebra]]]
 SimpleRootLengthsFactor[algebra_] := DiagonalMatrix[2/ScalarProduct[#,#] & /@ NormalizeSimpleRoots[OrthogonalSimpleRoots[algebra]]]
 
-MetricTensor[algebra_?SimpleLieAlgebraQ] := MetricTensor[algebra] = InverseCartanMatrix[algebra].DMatrix[algebra]
+MetricTensor[algebra_?SimpleLieAlgebraQ] := MetricTensor[algebra] = InverseCartanMatrix[algebra] . DMatrix[algebra]
 
 ScalarProduct[weight1: (Weight|Irrep|RootOmega|RootAlpha)[algebraClass_][label1__], weight2: (Weight|Irrep|RootOmega|RootAlpha)[algebraClass_][label2__]] := 
     Dot[{label1}, MetricTensor[Algebra[weight1]], {label2}]
@@ -566,8 +567,11 @@ ScalarProduct[weight1: (Weight|Irrep|RootOmega|RootAlpha)[algebraClass_][label1_
 ScalarProduct[weight1: (WeightOrthogonal|RootOrthogonal)[algebraClass_][label1__], weight2: (WeightOrthogonal|RootOrthogonal)[algebraClass_][label2__]] := 
     Dot[{label1}, {label2}]
 
+
+
 (* ::Section:: *)
 (* Bases *)
+
 
 StandardBasisN[A, m_] := m - 1
 StandardBasisN[B|C|D, m_] := m
@@ -614,12 +618,15 @@ Basis[(Weight|WeightAlpha|Irrep|RootOmega|RootAlpha|RootOrthogonal|WeightOrthogo
 Basis[(Weight|Irrep|RootOmega)[_][__]] := OmegaBasis
 Basis[(WeightAlpha|RootAlpha)[_][__]] := AlphaBasis
 
+
+
 (* ::Section:: *)
 (* Roots *)
 
+
 Rbar[algebra_] := Rbar[algebra] = 2 Total /@ InverseCartanMatrix[algebra]
 
-RootLevel[root:RootOmega[_][label__]] := 1/2 Rbar[Algebra[root]].{label}
+RootLevel[root:RootOmega[_][label__]] := 1/2 Rbar[Algebra[root]] . {label}
 
 ZeroRoots[algebra_] := RootOmega[AlgebraClass[algebra]] @@@ ConstantArray[0, {Rank[algebra], Rank[algebra]}]
 
@@ -654,8 +661,11 @@ PositiveRoots[algebra_?SimpleLieAlgebraQ]    := PositiveRoots[algebra] = Take[Ro
 
 NumberOfRoots[algebra_?SimpleLieAlgebraQ] := Length[RootSystem[algebra]]
 
+
+
 (* ::Section:: *)
 (* Dynkin Diagrams *)
+
 
 doubleLine[{p1:{x1_,y1_},p2:{x2_,y2_}},rest___]:=Module[{offset={0,0.1}},{Line[{p1+offset,p2+offset}],Line[{p1-offset,p2-offset}]}]
 tripleLine[{p1:{x1_,y1_},p2:{x2_,y2_}},rest___]:=Module[{offset={0,0.1}},{Line[{p1+offset,p2+offset}],Line[{p1,p2}],Line[{p1-offset,p2-offset}]}]
@@ -758,8 +768,12 @@ Module[
 ]
    
 
+
+
 (* ::Section:: *)
 (* Orbits *)
+
+
    
 ReflectionMatrices[algebra_?SimpleLieAlgebraQ] := ReflectionMatrices[algebra] = ReflectionMatrix /@ List @@@ OrthogonalSimpleRoots[algebra]
 
@@ -767,7 +781,7 @@ Reflect[weightOrRoot:(Weight|RootOmega|WeightAlpha|RootAlpha|WeightOrthogonal|Ro
     Function[root, weightOrRoot - 2 ScalarProduct[weightOrRoot, root]/ScalarProduct[root, root] root]/@ simpleroots
 
 Reflect[weightOrRoot:(WeightOrthogonal|RootOrthogonal)[_][__]] :=  Reflect[weightOrRoot] = 
-    Head[weightOrRoot] @@@  (#.List@@weightOrRoot&/@ReflectionMatrices[Algebra[weightOrRoot]])
+    Head[weightOrRoot] @@@  (# . List@@weightOrRoot&/@ReflectionMatrices[Algebra[weightOrRoot]])
 
 Reflect[weights_List, simpleroots_] := DeleteDuplicates[Join[weights, Flatten[Reflect[#, simpleroots]&/@ weights,1]]]
 Reflect[weights_List]               := DeleteDuplicates[Join[weights, Flatten[Reflect/@ weights,1]]]
@@ -817,8 +831,11 @@ Orbit[weightOrRoot:(Weight|RootOmega|WeightOrthogonal|RootOrthogonal)[algebraCla
 
 DimOrbit[args__] := DimOrbit[args] = Length[Orbit[args]]
 
+
+
 (* ::Section:: *)
 (* Irreps *)
+
 
 Delta[algebra_] := Delta[algebra] = Weight[AlgebraClass[algebra]]@@ConstantArray[1, Rank[algebra]]
 
@@ -877,7 +894,7 @@ DimName[irrep:Irrep[U][u1charge_]] := DimName[irrep] = u1charge
 
 Attributes[CongruencyClass] = {Listable}
 CongruencyClass[ProductIrrep[irreps__]] := CongruencyClass /@ ({irreps}/.Irrep[U][_]->Sequence[])
-CongruencyClass[irrep:Irrep[A][__]?NonNumericIrrepQ] := Mod[Range[Rank[irrep]].List@@irrep, Rank[irrep]+1]
+CongruencyClass[irrep:Irrep[A][__]?NonNumericIrrepQ] := Mod[Range[Rank[irrep]] . List@@irrep, Rank[irrep]+1]
 CongruencyClass[irrep:Irrep[B][__]?NonNumericIrrepQ] := Mod[Last[List@@irrep], 2]
 CongruencyClass[irrep:Irrep[C][__]?NonNumericIrrepQ] := Mod[Plus @@ Part[List @@ irrep, ;; ;; 2], 2]
 CongruencyClass[irrep:Irrep[D][__]?NonNumericIrrepQ] := 
@@ -1002,6 +1019,7 @@ DominantWeights[weights_] := Select[weights, DominantQ]
 (* ::Subsection:: *)
 (* Multiplicity *)
 
+
 OmegaSimpleRoots[algebra_] := OmegaSimpleRoots[algebra] = OmegaBasis@OrthogonalSimpleRoots@algebra
 
 T[weight_] := Position[List@@weight, 0]
@@ -1052,8 +1070,11 @@ WeightMultiplicity[weight, irrep] =
         ]
     ]
 
+
+
 (* ::Subsection:: *)
 (* Weight System *)
+
 
 DominantWeightSystem[irrep_] := DominantWeightSystem[irrep] = {#, WeightMultiplicity[#, irrep]}& /@ SingleDominantWeightSystem[irrep];
 
@@ -1101,8 +1122,11 @@ Module[
     
     
     
+
+
 (* ::Subsection:: *)
 (* Young Tableau *)
+
 
 Attributes[YoungTableau] = {Listable}
 
@@ -1123,14 +1147,19 @@ YoungTableau[irrep : Irrep[A][label__]?IrrepQ] :=
   
 YoungTableaux[irreps_List]:=Row[YoungTableau/@irreps," "]
 
+
+
 (* ::Section:: *)
 (* Decompositions *)
+
 
 (* ::Subsection:: *)
 (* Branching Rules *)
 
+
 (* ::Subsubsection:: *)
 (* Projection Matrices *)
+
 
 DropSimpleRoot[weights_,k_]:=Drop[weights,None,Flatten@{k}]
 
@@ -1145,7 +1174,7 @@ NonMaximalSubalgebra[algebra,simpleRootsToDrop]=
 Module[{decomposedLowestOrbit,sourceLowestOrbit},
     sourceLowestOrbit=List@@@LowestOrbit[algebra];
     decomposedLowestOrbit=Drop[sourceLowestOrbit,None,simpleRootsToDrop];
-    Transpose[decomposedLowestOrbit].PseudoInverse[Transpose[sourceLowestOrbit]]
+    Transpose[decomposedLowestOrbit] . PseudoInverse[Transpose[sourceLowestOrbit]]
 ]
 
 NonSemiSimpleSubalgebra[algebra_?SimpleLieAlgebraQ,simpleRootToDrop_]:=
@@ -1155,7 +1184,7 @@ Module[{decomposedLowestOrbit,sourceLowestOrbit,u1Charges,appendedU1Charges},
 	u1Charges=U1Charges[LowestOrbit[algebra],simpleRootToDrop];
 	decomposedLowestOrbit=DropSimpleRoot[sourceLowestOrbit,simpleRootToDrop];
 	appendedU1Charges=MapThread[Append,{decomposedLowestOrbit,u1Charges}];
-	NormalizeU1Charges@Transpose[appendedU1Charges].PseudoInverse[Transpose[sourceLowestOrbit]]
+	NormalizeU1Charges@Transpose[appendedU1Charges] . PseudoInverse[Transpose[sourceLowestOrbit]]
 	
 ]
 
@@ -1186,7 +1215,7 @@ SemiSimpleSubalgebra[algebra,simpleRootToDrop]=
 Module[{decomposedLowestOrbit,sourceLowestOrbit},
     sourceLowestOrbit=List@@@LowestOrbit[algebra];
     decomposedLowestOrbit=ExtendedWeightScheme[algebra,simpleRootToDrop];
-    Transpose[decomposedLowestOrbit].PseudoInverse[Transpose[sourceLowestOrbit]]
+    Transpose[decomposedLowestOrbit] . PseudoInverse[Transpose[sourceLowestOrbit]]
 ]
 
 SpecialSubalgebra[origin_?SimpleLieAlgebraQ,targetirreps:{ProductIrrep[__?IrrepQ]..}]:=
@@ -1194,12 +1223,13 @@ SpecialSubalgebra[origin, targetirreps]=
  Module[{sourceIrrep,targetIrreps},
     sourceIrrep=Sort[List@@@WeightSystem[GeneratingIrrep[origin]], OrderedQ[{#2, #1}]&];
     targetIrreps=Sort[Flatten[(Flatten/@(List@@@WeightSystem[#]/.Weight[_]->List))&/@targetirreps,1], OrderedQ[{#2, #1}]&];
-    Transpose[targetIrreps].PseudoInverse[Transpose[sourceIrrep]]
+    Transpose[targetIrreps] . PseudoInverse[Transpose[sourceIrrep]]
 ]
 
 
 (* ::Subsubsection:: *)
 (* Sort Out Irreps *)
+
 
 SortOutIrrep[sOrbits_] :=
     Module[ {i, highestIrrep,sortedOrbits=sOrbits,dominantWeights,pos},
@@ -1235,8 +1265,11 @@ Module[{npalgebras = Length[First[alldecomposition]],nRestColumns},
     Flatten[GetProductIrrep[#, nColumn]& /@ GatherBy[alldecomposition,#[[nRestColumns]]&],1]
 ]
 
+
+
 (* ::Subsubsection:: *)
 (* Irrep Decomposition *)
+
 
 UnequalPartition[list_, {n_Integer}] := {Take[list, n]}
 UnequalPartition[list_, n_List] := Join[{Take[list, First[n]]}, UnequalPartition[Drop[list, First[n]], Rest[n]]]
@@ -1248,7 +1281,7 @@ IrrepTimes /: DecomposeIrrep[IrrepTimes[factor_?IntegerQ, irrep_?SingleOrProduct
 
 DecomposeIrrep[irrep_?IrrepQ, algebra_?SimpleLieAlgebraQ, args___] := DecomposeIrrep[irrep, ProductAlgebra[algebra], args]/. ProductIrrep->Sequence
 
-Project[matrix_, weights_] := matrix.# & /@ List @@@ weights
+Project[matrix_, weights_] := matrix . # & /@ List @@@ weights
 
 DecomposeIrrep::nosubalgebra := "Either `1` does not have `2` as a subalgebra or the branching rule is implemented with a different ordering of `2` or not at all. Try changing the order in `2`.";
 
@@ -1279,6 +1312,7 @@ Module[{decomposition},
 
 (* ::Subsection:: *)
 (* Fast Tensor Product Decomposition for SU(N) *)
+
 
 AddToTableau[irrep_, rowcombinations_] :=
  Module[ {n = Length[irrep[[1]]], added},
@@ -1340,8 +1374,11 @@ DecomposeProduct[irrep1:Irrep[A][label1__?DynkinLabelQ], irrep2:Irrep[A][label2_
     ] 
     ) /; Algebra[irrep1] === Algebra[irrep2]
 
+
+
 (* ::Subsection:: *)
 (* Irrep Product Decomposition *)
+
 
 Attributes[DecomposeProduct] = {Listable}
 
