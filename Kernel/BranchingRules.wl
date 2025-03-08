@@ -9,7 +9,7 @@
 
 (*This file is part of LieART. See LieART.m for licensing information*) 
 
-BeginPackage["LieARTTeam`LieART`"]
+BeginPackage["LieART`LieART`"]
 
 {U,A,B,C,D,F4,G2,E6,E7,E8,
 Algebra,ProductAlgebra,
@@ -26,7 +26,7 @@ ProjectionMatrix::usage = "ProjectionMatrix  "
 EndPackage[]
 
 
-BeginPackage["LieARTTeam`LieART`BranchingRules`",{"LieARTTeam`LieART`"}]
+BeginPackage["LieART`LieART`BranchingRules`",{"LieART`LieART`"}]
 
 
 Begin["`Private`"]

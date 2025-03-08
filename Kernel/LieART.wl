@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Print["LieART 2.1.1"];
 Print["last revised 14 February 2025"]
 
-BeginPackage["LieARTTeam`LieART`"]
+BeginPackage["LieART`LieART`"]
 Get["LieART`BranchingRules`"]
 
 (* Algebras *)

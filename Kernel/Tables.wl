@@ -9,7 +9,7 @@
 
 (*This file is part of LieART. See LieART.m for licensing information*) 
 
-BeginPackage["LieARTTeam`LieART`Tables`", { "LieARTTeam`LieART`","LieARTTeam`LieART`BranchingRules`"}]
+BeginPackage["LieART`LieART`Tables`", { "LieART`LieART`","LieART`LieART`BranchingRules`"}]
 
 Starred::usage = "Starred  "
 StarredVar::usage = "StarredVar  "
